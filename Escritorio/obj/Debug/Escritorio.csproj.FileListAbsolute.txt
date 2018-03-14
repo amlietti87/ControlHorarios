@@ -1,0 +1,16 @@
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\Escritorio.exe.config
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\Escritorio.exe
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\Escritorio.pdb
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\DataBase.dll
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\Utilities.dll
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\DataBase.pdb
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\DataBase.dll.config
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\bin\Debug\Utilities.pdb
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.ObraSocial.resources
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.Properties.Resources.resources
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.cache
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csproj.CoreCompileInputs.cache
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.exe
+C:\Users\andreslietti\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.pdb
