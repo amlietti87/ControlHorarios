@@ -164,16 +164,15 @@ namespace Escritorio
             this.ObraSocial_Load();
         }
 
-        private void dgv_ObraSocial_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_name.Text = dgv_ObraSocial.CurrentRow.Cells[1].Value.ToString().Trim();
-        }
-
+        
         private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Clear();
         }
 
-       
+        private void dgv_ObraSocial_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_name.Text = dgv_ObraSocial.CurrentRow.Cells[1].Value.ToString().Trim();
+        }
     }
 }
