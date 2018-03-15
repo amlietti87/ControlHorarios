@@ -16,7 +16,7 @@ namespace Escritorio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ObraSocial());
+            Application.Run(new Profesion());
         }
     }
 }

@@ -6,4 +6,10 @@
       <Column Name="obrasocial_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.profesion" Member="profesions">
+    <Type Name="profesion">
+      <Column Name="Id_Profesion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pofesion_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

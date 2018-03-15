@@ -43,11 +43,13 @@
             this.obrasocialnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grp_Datos = new System.Windows.Forms.GroupBox();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
+            this.obrasocialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource)).BeginInit();
             this.grp_Listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ObraSocial)).BeginInit();
             this.grp_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // obrasocialBindingSource
@@ -57,7 +59,7 @@
             // btn_new
             // 
             this.btn_new.Location = new System.Drawing.Point(364, 47);
-            this.btn_new.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_new.Margin = new System.Windows.Forms.Padding(2);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(65, 26);
             this.btn_new.TabIndex = 1;
@@ -68,7 +70,7 @@
             // btn_upda
             // 
             this.btn_upda.Location = new System.Drawing.Point(364, 96);
-            this.btn_upda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_upda.Margin = new System.Windows.Forms.Padding(2);
             this.btn_upda.Name = "btn_upda";
             this.btn_upda.Size = new System.Drawing.Size(65, 26);
             this.btn_upda.TabIndex = 2;
@@ -79,7 +81,7 @@
             // btn_del
             // 
             this.btn_del.Location = new System.Drawing.Point(364, 141);
-            this.btn_del.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_del.Margin = new System.Windows.Forms.Padding(2);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(65, 26);
             this.btn_del.TabIndex = 3;
@@ -100,17 +102,17 @@
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(156, 45);
-            this.txt_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(2);
             this.txt_name.MaxLength = 50;
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(77, 20);
+            this.txt_name.Size = new System.Drawing.Size(100, 20);
             this.txt_name.TabIndex = 5;
             this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
             // 
             // btn_confirm
             // 
             this.btn_confirm.Location = new System.Drawing.Point(104, 91);
-            this.btn_confirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_confirm.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(65, 26);
             this.btn_confirm.TabIndex = 6;
@@ -121,7 +123,7 @@
             // btn_cancel
             // 
             this.btn_cancel.Location = new System.Drawing.Point(224, 91);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(65, 26);
             this.btn_cancel.TabIndex = 7;
@@ -136,9 +138,9 @@
             this.grp_Listado.Controls.Add(this.btn_upda);
             this.grp_Listado.Controls.Add(this.btn_del);
             this.grp_Listado.Location = new System.Drawing.Point(6, 6);
-            this.grp_Listado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grp_Listado.Margin = new System.Windows.Forms.Padding(2);
             this.grp_Listado.Name = "grp_Listado";
-            this.grp_Listado.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grp_Listado.Padding = new System.Windows.Forms.Padding(2);
             this.grp_Listado.Size = new System.Drawing.Size(470, 202);
             this.grp_Listado.TabIndex = 8;
             this.grp_Listado.TabStop = false;
@@ -151,9 +153,9 @@
             this.dgv_ObraSocial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idObraSocialDataGridViewTextBoxColumn,
             this.obrasocialnomDataGridViewTextBoxColumn});
-            this.dgv_ObraSocial.DataSource = this.obrasocialBindingSource;
+            this.dgv_ObraSocial.DataSource = this.obrasocialBindingSource1;
             this.dgv_ObraSocial.Location = new System.Drawing.Point(46, 32);
-            this.dgv_ObraSocial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_ObraSocial.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_ObraSocial.Name = "dgv_ObraSocial";
             this.dgv_ObraSocial.RowTemplate.Height = 33;
             this.dgv_ObraSocial.Size = new System.Drawing.Size(245, 154);
@@ -179,9 +181,9 @@
             this.grp_Datos.Controls.Add(this.btn_confirm);
             this.grp_Datos.Controls.Add(this.btn_cancel);
             this.grp_Datos.Location = new System.Drawing.Point(6, 216);
-            this.grp_Datos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grp_Datos.Margin = new System.Windows.Forms.Padding(2);
             this.grp_Datos.Name = "grp_Datos";
-            this.grp_Datos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grp_Datos.Padding = new System.Windows.Forms.Padding(2);
             this.grp_Datos.Size = new System.Drawing.Size(470, 129);
             this.grp_Datos.TabIndex = 9;
             this.grp_Datos.TabStop = false;
@@ -191,6 +193,10 @@
             // 
             this.Validaciones.ContainerControl = this;
             // 
+            // obrasocialBindingSource1
+            // 
+            this.obrasocialBindingSource1.DataSource = typeof(DataBase.obrasocial);
+            // 
             // ObraSocial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,7 +204,7 @@
             this.ClientSize = new System.Drawing.Size(482, 352);
             this.Controls.Add(this.grp_Datos);
             this.Controls.Add(this.grp_Listado);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ObraSocial";
             this.Text = "Obras Sociales";
             ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource)).EndInit();
@@ -207,6 +213,7 @@
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,6 +233,7 @@
         private System.Windows.Forms.DataGridView dgv_ObraSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn idObraSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn obrasocialnomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource obrasocialBindingSource1;
     }
 }
 

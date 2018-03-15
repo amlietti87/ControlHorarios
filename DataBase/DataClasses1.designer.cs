@@ -33,6 +33,9 @@ namespace DataBase
     partial void Insertobrasocial(obrasocial instance);
     partial void Updateobrasocial(obrasocial instance);
     partial void Deleteobrasocial(obrasocial instance);
+    partial void Insertprofesion(profesion instance);
+    partial void Updateprofesion(profesion instance);
+    partial void Deleteprofesion(profesion instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -70,6 +73,14 @@ namespace DataBase
 			get
 			{
 				return this.GetTable<obrasocial>();
+			}
+		}
+		
+		public System.Data.Linq.Table<profesion> profesions
+		{
+			get
+			{
+				return this.GetTable<profesion>();
 			}
 		}
 	}
@@ -135,6 +146,92 @@ namespace DataBase
 					this._obrasocial_nom = value;
 					this.SendPropertyChanged("obrasocial_nom");
 					this.Onobrasocial_nomChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.profesion")]
+	public partial class profesion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_Profesion;
+		
+		private string _pofesion_nom;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_ProfesionChanging(int value);
+    partial void OnId_ProfesionChanged();
+    partial void Onpofesion_nomChanging(string value);
+    partial void Onpofesion_nomChanged();
+    #endregion
+		
+		public profesion()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Profesion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_Profesion
+		{
+			get
+			{
+				return this._Id_Profesion;
+			}
+			set
+			{
+				if ((this._Id_Profesion != value))
+				{
+					this.OnId_ProfesionChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Profesion = value;
+					this.SendPropertyChanged("Id_Profesion");
+					this.OnId_ProfesionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pofesion_nom", DbType="Char(30)")]
+		public string pofesion_nom
+		{
+			get
+			{
+				return this._pofesion_nom;
+			}
+			set
+			{
+				if ((this._pofesion_nom != value))
+				{
+					this.Onpofesion_nomChanging(value);
+					this.SendPropertyChanging();
+					this._pofesion_nom = value;
+					this.SendPropertyChanged("pofesion_nom");
+					this.Onpofesion_nomChanged();
 				}
 			}
 		}
