@@ -36,6 +36,9 @@ namespace DataBase
     partial void Insertprofesion(profesion instance);
     partial void Updateprofesion(profesion instance);
     partial void Deleteprofesion(profesion instance);
+    partial void Inserttipodehora(tipodehora instance);
+    partial void Updatetipodehora(tipodehora instance);
+    partial void Deletetipodehora(tipodehora instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -81,6 +84,14 @@ namespace DataBase
 			get
 			{
 				return this.GetTable<profesion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tipodehora> tipodehoras
+		{
+			get
+			{
+				return this.GetTable<tipodehora>();
 			}
 		}
 	}
@@ -232,6 +243,92 @@ namespace DataBase
 					this._pofesion_nom = value;
 					this.SendPropertyChanged("pofesion_nom");
 					this.Onpofesion_nomChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tipodehora")]
+	public partial class tipodehora : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_TipodeHora;
+		
+		private string _tipodehora_nom;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_TipodeHoraChanging(int value);
+    partial void OnId_TipodeHoraChanged();
+    partial void Ontipodehora_nomChanging(string value);
+    partial void Ontipodehora_nomChanged();
+    #endregion
+		
+		public tipodehora()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_TipodeHora", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_TipodeHora
+		{
+			get
+			{
+				return this._Id_TipodeHora;
+			}
+			set
+			{
+				if ((this._Id_TipodeHora != value))
+				{
+					this.OnId_TipodeHoraChanging(value);
+					this.SendPropertyChanging();
+					this._Id_TipodeHora = value;
+					this.SendPropertyChanged("Id_TipodeHora");
+					this.OnId_TipodeHoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipodehora_nom", DbType="Char(30)")]
+		public string tipodehora_nom
+		{
+			get
+			{
+				return this._tipodehora_nom;
+			}
+			set
+			{
+				if ((this._tipodehora_nom != value))
+				{
+					this.Ontipodehora_nomChanging(value);
+					this.SendPropertyChanging();
+					this._tipodehora_nom = value;
+					this.SendPropertyChanged("tipodehora_nom");
+					this.Ontipodehora_nomChanged();
 				}
 			}
 		}

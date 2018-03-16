@@ -8,10 +8,16 @@
         <elementListCompartment Id="e7378668-d3b8-4a51-b34f-3d56e9f98582" absoluteBounds="1.2649999999999997, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f444ee8b-7f59-45ba-abd4-b1121dbde717" absoluteBounds="4.5, 0.875, 2, 1.1939925130208333">
+    <classShape Id="f444ee8b-7f59-45ba-abd4-b1121dbde717" absoluteBounds="4, 0.5, 2, 1.1939925130208333">
       <DataClassMoniker Name="/DataClasses1DataContext/profesion" />
       <nestedChildShapes>
-        <elementListCompartment Id="7287c4cf-4497-4a06-8464-e965f54fc1ba" absoluteBounds="4.515, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7287c4cf-4497-4a06-8464-e965f54fc1ba" absoluteBounds="4.015, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f6887955-7e91-4209-ad77-d0a68f409e63" absoluteBounds="6.875, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataClasses1DataContext/tipodehora" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef55c2fa-4aa0-4bec-9c7b-907760aec1ec" absoluteBounds="6.89, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

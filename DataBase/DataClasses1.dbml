@@ -12,4 +12,10 @@
       <Column Name="pofesion_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tipodehora" Member="tipodehoras">
+    <Type Name="tipodehora">
+      <Column Name="Id_TipodeHora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipodehora_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

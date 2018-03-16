@@ -11,19 +11,19 @@ using Utilities;
 
 namespace Escritorio
 {
-    public partial class Profesion : Form
+    public partial class TipodeHora : Form
     {
         String Operacion;
-        public Profesion()
+        public TipodeHora()
         {
             InitializeComponent();
-            Profesion_Load();
+            TipodeHora_Load();
         }
 
-        void ListarProfesiones()
+        void ListarTiposdeHoras()
         {
             DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_Profesion.DataSource = cc.profesions;
+            dgv_TdH.DataSource = cc.tipodehoras;
         }
 
         void LimpiarCampo()
@@ -31,13 +31,13 @@ namespace Escritorio
             txt_name.Text = "";
         }
 
-        void Profesion_Load()
+        void TipodeHora_Load()
         {
-            this.ListarProfesiones();
-            grp_datos.Enabled = false;
-            grp_Listado.Enabled = true;
-            dgv_Profesion.AllowUserToAddRows = false;
-            dgv_Profesion.ReadOnly = true;
+            this.ListarTiposdeHoras();
+            grp_Datos.Enabled = false;
+            grp_Listados.Enabled = true;
+            dgv_TdH.AllowUserToAddRows = false;
+            dgv_TdH.ReadOnly = true;
         }
 
         private bool ValidarNombre()
@@ -46,12 +46,12 @@ namespace Escritorio
             if (txt_name.Text.Trim() == "")
             {
                 val = false;
-                Validacion.SetError(txt_name, "Debe ingresar una profesion.");
+                Validacion.SetError(txt_name, "Debe ingresar un tipo de hora.");
             }
             else if (!TextValidator.ValidarString(txt_name.Text))
             {
                 val = false;
-                Validacion.SetError(txt_name, "El nombre de la profesion solo debe contener letras");
+                Validacion.SetError(txt_name, "El tipo de hora solo debe contener letras");
             }
 
             return val;
@@ -60,8 +60,8 @@ namespace Escritorio
         private void btn_new_Click(object sender, EventArgs e)
         {
             Validacion.Clear();
-            grp_Listado.Enabled = false;
-            grp_datos.Enabled = true;
+            grp_Listados.Enabled = false;
+            grp_Datos.Enabled = true;
             LimpiarCampo();
             Operacion = "agregar";
         }
@@ -70,14 +70,14 @@ namespace Escritorio
         {
             if (txt_name.Text == "")
             {
-                MessageBox.Show("Debe seleccionar una profesion para poder realizar la modificacion");
-                this.Profesion_Load();
+                MessageBox.Show("Debe seleccionar un tipo de hora para poder realizar la modificacion");
+                this.TipodeHora_Load();
             }
             else
             {
                 Validacion.Clear();
-                grp_Listado.Enabled = false;
-                grp_datos.Enabled = true;
+                grp_Listados.Enabled = false;
+                grp_Datos.Enabled = true;
                 Operacion = "modificar";
             }
         }
@@ -86,26 +86,26 @@ namespace Escritorio
         {
             if (txt_name.Text == "")
             {
-                MessageBox.Show("Debe seleccionar una profesion para poder eliminarla");
-                this.Profesion_Load();
+                MessageBox.Show("Debe seleccionar un tipo de hora para poder eliminarla");
+                this.TipodeHora_Load();
             }
             else
             {
                 try
                 {
                     DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-                    int ProId = Convert.ToInt32(dgv_Profesion.CurrentRow.Cells[0].Value);
-                    DataBase.profesion ProDelete = cc.profesions.Single(w => w.Id_Profesion == ProId);
-                    cc.profesions.DeleteOnSubmit(ProDelete);
-                    MessageBox.Show("La profesion seleccionada ha sido eliminada correctamente");
-                    this.Profesion_Load();
+                    int TdHId = Convert.ToInt32(dgv_TdH.CurrentRow.Cells[0].Value);
+                    DataBase.tipodehora TdHDelete = cc.tipodehoras.Single(w => w.Id_TipodeHora == TdHId);
+                    cc.tipodehoras.DeleteOnSubmit(TdHDelete);
+                    MessageBox.Show("El tipo de hora seleccionado ha sido eliminado correctamente");
+                    this.TipodeHora_Load();
 
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.Message);
-                    MessageBox.Show("No se ha podido eliminar la profesion seleccionada");
-                    this.Profesion_Load();
+                    MessageBox.Show("No se ha podido eliminar el tipo de hora seleccionada");
+                    this.TipodeHora_Load();
                 }
             }
         }
@@ -122,45 +122,45 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.profesion newPro = new DataBase.profesion();
-                            newPro.pofesion_nom = txt_name.Text.Trim();
-                            cc.profesions.InsertOnSubmit(newPro);
+                            DataBase.tipodehora newTdH = new DataBase.tipodehora();
+                            newTdH.tipodehora_nom = txt_name.Text.Trim();
+                            cc.tipodehoras.InsertOnSubmit(newTdH);
                             cc.SubmitChanges();
-                            MessageBox.Show("Nueva profesion cargada");
+                            MessageBox.Show("Nuevo tipo de hora cargado");
                             break;
                         }
                         catch (Exception ex)
                         {
                             System.Console.WriteLine(ex.Message);
-                            MessageBox.Show("La profesion no se ha podido cargar, por favor vuelva a intentar");
+                            MessageBox.Show("El tipo de hora no se ha podido cargar, por favor vuelva a intentar");
                             break;
                         }
 
                     case "modificar":
                         try
                         {
-                            int ProId = Convert.ToInt32(dgv_Profesion.CurrentRow.Cells[0].Value);
-                            var query = cc.profesions.Where(w => w.Id_Profesion == ProId).FirstOrDefault();
-                            query.pofesion_nom = txt_name.Text.Trim();
+                            int TdHId = Convert.ToInt32(dgv_TdH.CurrentRow.Cells[0].Value);
+                            var query = cc.tipodehoras.Where(w => w.Id_TipodeHora == TdHId).FirstOrDefault();
+                            query.tipodehora_nom = txt_name.Text.Trim();
                             cc.SubmitChanges();
-                            MessageBox.Show("La profesion ha sido modificada");
+                            MessageBox.Show("El tipo de hora ha sido modificado");
                             break;
                         }
                         catch (Exception ex)
                         {
                             System.Console.WriteLine(ex.Message);
-                            MessageBox.Show("La profesion no se ha podido actualizar, por favor vuelva a intentar");
+                            MessageBox.Show("El tipo de hora no se ha podido actualizar, por favor vuelva a intentar");
                             break;
                         }
                 }
-                this.Profesion_Load();
+                this.TipodeHora_Load();
             }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Validacion.Clear();
-            this.Profesion_Load();
+            this.TipodeHora_Load();
         }
 
         private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
@@ -168,9 +168,9 @@ namespace Escritorio
             Validacion.Clear();
         }
 
-        private void dgv_Profesion_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_TdH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_name.Text = dgv_Profesion.CurrentRow.Cells[1].Value.ToString().Trim();
+            txt_name.Text = dgv_TdH.CurrentRow.Cells[1].Value.ToString().Trim();
         }
     }
 }

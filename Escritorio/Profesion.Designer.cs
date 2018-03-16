@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.dgv_Profesion = new System.Windows.Forms.DataGridView();
             this.grp_Listado = new System.Windows.Forms.GroupBox();
-            this.btn_new = new System.Windows.Forms.Button();
-            this.btn_updte = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
+            this.btn_updte = new System.Windows.Forms.Button();
+            this.btn_new = new System.Windows.Forms.Button();
             this.grp_datos = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.btn_confirm = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_confirm = new System.Windows.Forms.Button();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Validacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.profesionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idProfesionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pofesionnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profesionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Profesion)).BeginInit();
             this.grp_Listado.SuspendLayout();
             this.grp_datos.SuspendLayout();
@@ -77,15 +77,15 @@
             this.grp_Listado.TabStop = false;
             this.grp_Listado.Text = "Profesiones";
             // 
-            // btn_new
+            // btn_del
             // 
-            this.btn_new.Location = new System.Drawing.Point(364, 47);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(65, 26);
-            this.btn_new.TabIndex = 1;
-            this.btn_new.Text = "Agregar";
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            this.btn_del.Location = new System.Drawing.Point(364, 141);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(65, 26);
+            this.btn_del.TabIndex = 3;
+            this.btn_del.Text = "Eliminar";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
             // 
             // btn_updte
             // 
@@ -97,15 +97,15 @@
             this.btn_updte.UseVisualStyleBackColor = true;
             this.btn_updte.Click += new System.EventHandler(this.btn_updte_Click);
             // 
-            // btn_del
+            // btn_new
             // 
-            this.btn_del.Location = new System.Drawing.Point(364, 141);
-            this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(65, 26);
-            this.btn_del.TabIndex = 3;
-            this.btn_del.Text = "Eliminar";
-            this.btn_del.UseVisualStyleBackColor = true;
-            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            this.btn_new.Location = new System.Drawing.Point(364, 47);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(65, 26);
+            this.btn_new.TabIndex = 1;
+            this.btn_new.Text = "Agregar";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // grp_datos
             // 
@@ -120,22 +120,15 @@
             this.grp_datos.TabStop = false;
             this.grp_datos.Text = "Dato Profesion";
             // 
-            // label1
+            // btn_cancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre Profesion";
-            // 
-            // txt_name
-            // 
-            this.txt_name.Location = new System.Drawing.Point(156, 45);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(100, 20);
-            this.txt_name.TabIndex = 1;
-            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
+            this.btn_cancel.Location = new System.Drawing.Point(224, 91);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(65, 26);
+            this.btn_cancel.TabIndex = 3;
+            this.btn_cancel.Text = "Cancelar";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_confirm
             // 
@@ -147,19 +140,30 @@
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
             // 
-            // btn_cancel
+            // txt_name
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(224, 91);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(65, 26);
-            this.btn_cancel.TabIndex = 3;
-            this.btn_cancel.Text = "Cancelar";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            this.txt_name.Location = new System.Drawing.Point(156, 45);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(100, 20);
+            this.txt_name.TabIndex = 1;
+            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Profesion";
             // 
             // Validacion
             // 
             this.Validacion.ContainerControl = this;
+            // 
+            // profesionBindingSource
+            // 
+            this.profesionBindingSource.DataSource = typeof(DataBase.profesion);
             // 
             // idProfesionDataGridViewTextBoxColumn
             // 
@@ -170,13 +174,9 @@
             // pofesionnomDataGridViewTextBoxColumn
             // 
             this.pofesionnomDataGridViewTextBoxColumn.DataPropertyName = "pofesion_nom";
-            this.pofesionnomDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.pofesionnomDataGridViewTextBoxColumn.HeaderText = "Profesion";
             this.pofesionnomDataGridViewTextBoxColumn.MaxInputLength = 30;
             this.pofesionnomDataGridViewTextBoxColumn.Name = "pofesionnomDataGridViewTextBoxColumn";
-            // 
-            // profesionBindingSource
-            // 
-            this.profesionBindingSource.DataSource = typeof(DataBase.profesion);
             // 
             // Profesion
             // 
@@ -200,8 +200,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_Profesion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProfesionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pofesionnomDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource profesionBindingSource;
         private System.Windows.Forms.GroupBox grp_Listado;
         private System.Windows.Forms.Button btn_del;
@@ -213,5 +211,7 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_confirm;
         private System.Windows.Forms.ErrorProvider Validacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProfesionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pofesionnomDataGridViewTextBoxColumn;
     }
 }
