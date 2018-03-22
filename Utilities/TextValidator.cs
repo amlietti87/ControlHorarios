@@ -33,7 +33,12 @@ namespace Utilities
 
         static public bool ValidarEntero(string tel)
         {
-            return new Regex(@"^\s*?[0-9]{1,4}\s*$").IsMatch(tel);
+            return new Regex(@"^\s*?[0-9]{2,8}\s*$").IsMatch(tel);
+        }
+
+        static public bool ValidarMail(string mail)
+        {
+            return new Regex(@"^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$").IsMatch(mail);
         }
     }
 }

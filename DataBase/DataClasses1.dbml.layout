@@ -8,17 +8,30 @@
         <elementListCompartment Id="e7378668-d3b8-4a51-b34f-3d56e9f98582" absoluteBounds="1.2649999999999997, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f444ee8b-7f59-45ba-abd4-b1121dbde717" absoluteBounds="4, 0.5, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/DataClasses1DataContext/profesion" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7287c4cf-4497-4a06-8464-e965f54fc1ba" absoluteBounds="4.015, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="f6887955-7e91-4209-ad77-d0a68f409e63" absoluteBounds="6.875, 0.5, 2, 1.1939925130208333">
       <DataClassMoniker Name="/DataClasses1DataContext/tipodehora" />
       <nestedChildShapes>
         <elementListCompartment Id="ef55c2fa-4aa0-4bec-9c7b-907760aec1ec" absoluteBounds="6.89, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="4c43d835-62cd-4292-9568-67f788abbe65" absoluteBounds="3.875, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataClasses1DataContext/profesion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e2b44e6-03f9-45fa-9f32-ff54dd0de736" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5afe7cd3-63df-4083-9414-11d88109e6af" absoluteBounds="4, 2, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataClasses1DataContext/terapeuta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5e12836-2d66-4baf-bc81-8332c13050f0" absoluteBounds="4.015, 2.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.9375 : 1.69399251302083); (4.9375 : 2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/profesion/profesion_terapeuta" />
+      <nodes>
+        <classShapeMoniker Id="4c43d835-62cd-4292-9568-67f788abbe65" />
+        <classShapeMoniker Id="5afe7cd3-63df-4083-9414-11d88109e6af" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

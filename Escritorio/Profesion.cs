@@ -34,6 +34,7 @@ namespace Escritorio
         void Profesion_Load()
         {
             this.ListarProfesiones();
+            this.LimpiarCampo();
             grp_datos.Enabled = false;
             grp_Listado.Enabled = true;
             dgv_Profesion.AllowUserToAddRows = false;
@@ -123,7 +124,7 @@ namespace Escritorio
                         try
                         {
                             DataBase.profesion newPro = new DataBase.profesion();
-                            newPro.pofesion_nom = txt_name.Text.Trim();
+                            newPro.profesion_nom = txt_name.Text.Trim();
                             cc.profesions.InsertOnSubmit(newPro);
                             cc.SubmitChanges();
                             MessageBox.Show("Nueva profesion cargada");
@@ -141,7 +142,7 @@ namespace Escritorio
                         {
                             int ProId = Convert.ToInt32(dgv_Profesion.CurrentRow.Cells[0].Value);
                             var query = cc.profesions.Where(w => w.Id_Profesion == ProId).FirstOrDefault();
-                            query.pofesion_nom = txt_name.Text.Trim();
+                            query.profesion_nom = txt_name.Text.Trim();
                             cc.SubmitChanges();
                             MessageBox.Show("La profesion ha sido modificada");
                             break;

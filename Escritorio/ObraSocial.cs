@@ -34,6 +34,7 @@ namespace Escritorio
         void ObraSocial_Load()
         {
             this.ListarObrasSociales();
+            this.LimpiarCampos();
             grp_Datos.Enabled = false;
             grp_Listado.Enabled = true;
             dgv_ObraSocial.AllowUserToAddRows = false;

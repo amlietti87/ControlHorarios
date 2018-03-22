@@ -6,16 +6,107 @@
       <Column Name="obrasocial_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.profesion" Member="profesions">
-    <Type Name="profesion">
-      <Column Name="Id_Profesion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pofesion_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tipodehora" Member="tipodehoras">
     <Type Name="tipodehora">
       <Column Name="Id_TipodeHora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tipodehora_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.profesion" Member="profesions">
+    <Type Name="profesion">
+      <Column Name="Id_Profesion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="profesion_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Association Name="profesion_terapeuta" Member="terapeutas" ThisKey="Id_Profesion" OtherKey="terapeuta_idprofesion" Type="terapeuta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.terapeuta" Member="terapeutas">
+    <Type Name="terapeuta">
+      <Column Name="Id_terapeuta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="terapeuta_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="terapeuta_ape" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="terapeuta_mail" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_dom" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_tel" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_doc" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_idprofesion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="terapeuta_matricula" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Association Name="profesion_terapeuta" Member="profesion" ThisKey="terapeuta_idprofesion" OtherKey="Id_Profesion" Type="profesion" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="nombre" Member="terapeuta_nom" />
+      <Argument Parameter="apellido" Member="terapeuta_ape" />
+      <Argument Parameter="mail" Member="terapeuta_mail" />
+      <Argument Parameter="telefono" Member="terapeuta_tel" />
+      <Argument Parameter="domicilio" Member="terapeuta_dom" />
+      <Argument Parameter="matricula" Member="terapeuta_matricula" />
+      <Argument Parameter="documento" Member="terapeuta_doc" />
+      <Argument Parameter="profesion" Member="terapeuta_idprofesion" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="id" Member="Id_terapeuta" />
+      <Argument Parameter="nombre" Member="terapeuta_nom" />
+      <Argument Parameter="apellido" Member="terapeuta_ape" />
+      <Argument Parameter="mail" Member="terapeuta_mail" />
+      <Argument Parameter="telefono" Member="terapeuta_tel" />
+      <Argument Parameter="domicilio" Member="terapeuta_dom" />
+      <Argument Parameter="matricula" Member="terapeuta_matricula" />
+      <Argument Parameter="documento" Member="terapeuta_doc" />
+      <Argument Parameter="profesion" Member="terapeuta_idprofesion" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId3">
+      <Argument Parameter="id" Member="Id_terapeuta" />
+    </DeleteFunction>
+  </Table>
+  <Function Name="dbo.ListarPacientes" Method="ListarPacientes">
+    <ElementType Name="ListarPacientesResult">
+      <Column Name="Id_paciente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paciente_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="paciente_ape" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="paciente_doc" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="paciente_fecnac" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="paciente_tel" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="paciente_dom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="obrasocial_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.AgregarTerapeuta" Method="AgregarTerapeuta">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="Mail" Parameter="mail" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Domicilio" Parameter="domicilio" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Matricula" Parameter="matricula" Type="System.String" DbType="NChar(30)" />
+    <Parameter Name="Documento" Parameter="documento" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Profesion" Parameter="profesion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.EliminarTerapeuta" Method="EliminarTerapeuta">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.ModificarTerapeuta" Method="ModificarTerapeuta">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="Char(30)" />
+    <Parameter Name="Mail" Parameter="mail" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Domicilio" Parameter="domicilio" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Matricula" Parameter="matricula" Type="System.String" DbType="NChar(30)" />
+    <Parameter Name="Documento" Parameter="documento" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="Profesion" Parameter="profesion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ListarTerapeutas" Method="ListarTerapeutas">
+    <ElementType Name="ListarTerapeutasResult">
+      <Column Name="Id_terapeuta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="terapeuta_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="terapeuta_ape" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="terapeuta_doc" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_tel" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_matricula" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="terapeuta_mail" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="terapeuta_dom" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="profesion_nom" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

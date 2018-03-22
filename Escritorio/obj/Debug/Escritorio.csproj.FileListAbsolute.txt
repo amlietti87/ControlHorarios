@@ -32,3 +32,4 @@ C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.cspr
 C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.pdb
 C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.TipodeHora.resources
+C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.Terapeuta.resources

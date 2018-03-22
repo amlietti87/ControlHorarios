@@ -79,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terapeuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terapeuta.Designer.cs">
+      <DependentUpon>Terapeuta.cs</DependentUpon>
+    </Compile>
     <Compile Include="TipodeHora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,10 +106,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Terapeuta.resx">
+      <DependentUpon>Terapeuta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TipodeHora.resx">
       <DependentUpon>TipodeHora.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DataBase.ListarTerapeutasResult.datasource" />
     <None Include="Properties\DataSources\DataBase.obrasocial.datasource" />
+    <None Include="Properties\DataSources\DataBase.profesion.datasource" />
     <None Include="Properties\DataSources\DataBase.tipodehora.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
