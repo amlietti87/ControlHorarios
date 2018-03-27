@@ -103,6 +103,14 @@ namespace DataBase
 			}
 		}
 		
+		public System.Data.Linq.Table<paciente> pacientes
+		{
+			get
+			{
+				return this.GetTable<paciente>();
+			}
+		}
+		
 		private void Insertterapeuta(terapeuta obj)
 		{
 			this.AgregarTerapeuta(obj.terapeuta_nom, obj.terapeuta_ape, obj.terapeuta_mail, obj.terapeuta_tel, obj.terapeuta_dom, obj.terapeuta_matricula, obj.terapeuta_doc, ((System.Nullable<int>)(obj.terapeuta_idprofesion)));
@@ -116,6 +124,21 @@ namespace DataBase
 		private void Deleteterapeuta(terapeuta obj)
 		{
 			this.EliminarTerapeuta(((System.Nullable<int>)(obj.Id_terapeuta)));
+		}
+		
+		private void Insertpaciente(paciente obj)
+		{
+			this.AgregarPaciente(obj.paciente_nom, obj.paciente_ape, obj.paciente_tel, obj.paciente_dom, ((System.Nullable<System.DateTime>)(obj.paciente_fecnac)), obj.paciente_doc, ((System.Nullable<int>)(obj.paciente_idobrasocial)));
+		}
+		
+		private void Updatepaciente(paciente obj)
+		{
+			this.ModificarPaciente(((System.Nullable<int>)(obj.Id_paciente)), obj.paciente_nom, obj.paciente_ape, obj.paciente_tel, obj.paciente_dom, ((System.Nullable<System.DateTime>)(obj.paciente_fecnac)), obj.paciente_doc, ((System.Nullable<int>)(obj.paciente_idobrasocial)));
+		}
+		
+		private void Deletepaciente(paciente obj)
+		{
+			this.EliminarPaciente(((System.Nullable<int>)(obj.Id_paciente)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarPacientes")]
@@ -152,6 +175,27 @@ namespace DataBase
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<ListarTerapeutasResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AgregarPaciente")]
+		public int AgregarPaciente([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="Char(30)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="Char(30)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="Char(30)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Domicilio", DbType="Char(30)")] string domicilio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FecNac", DbType="Date")] System.Nullable<System.DateTime> fecNac, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Documento", DbType="NChar(30)")] string documento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ObraSocial", DbType="Int")] System.Nullable<int> obraSocial)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombre, apellido, telefono, domicilio, fecNac, documento, obraSocial);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EliminarPaciente")]
+		public int EliminarPaciente([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ModificarPaciente")]
+		public int ModificarPaciente([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="Char(30)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="Char(30)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="Char(30)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Domicilio", DbType="Char(30)")] string domicilio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FecNac", DbType="Date")] System.Nullable<System.DateTime> fecNac, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Documento", DbType="NChar(30)")] string documento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ObraSocial", DbType="Int")] System.Nullable<int> obraSocial)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, nombre, apellido, telefono, domicilio, fecNac, documento, obraSocial);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.obrasocial")]
@@ -163,6 +207,8 @@ namespace DataBase
 		private int _Id_ObraSocial;
 		
 		private string _obrasocial_nom;
+		
+		private EntitySet<paciente> _pacientes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -176,6 +222,7 @@ namespace DataBase
 		
 		public obrasocial()
 		{
+			this._pacientes = new EntitySet<paciente>(new Action<paciente>(this.attach_pacientes), new Action<paciente>(this.detach_pacientes));
 			OnCreated();
 		}
 		
@@ -219,6 +266,19 @@ namespace DataBase
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="obrasocial_paciente", Storage="_pacientes", ThisKey="Id_ObraSocial", OtherKey="paciente_idobrasocial")]
+		public EntitySet<paciente> pacientes
+		{
+			get
+			{
+				return this._pacientes;
+			}
+			set
+			{
+				this._pacientes.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -237,6 +297,18 @@ namespace DataBase
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_pacientes(paciente entity)
+		{
+			this.SendPropertyChanging();
+			entity.obrasocial = this;
+		}
+		
+		private void detach_pacientes(paciente entity)
+		{
+			this.SendPropertyChanging();
+			entity.obrasocial = null;
 		}
 	}
 	
@@ -710,6 +782,277 @@ namespace DataBase
 						this._terapeuta_idprofesion = default(int);
 					}
 					this.SendPropertyChanged("profesion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.paciente")]
+	public partial class paciente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_paciente;
+		
+		private string _paciente_nom;
+		
+		private string _paciente_ape;
+		
+		private string _paciente_tel;
+		
+		private string _paciente_dom;
+		
+		private System.Nullable<int> _paciente_idobrasocial;
+		
+		private System.Nullable<System.DateTime> _paciente_fecnac;
+		
+		private string _paciente_doc;
+		
+		private EntityRef<obrasocial> _obrasocial;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_pacienteChanging(int value);
+    partial void OnId_pacienteChanged();
+    partial void Onpaciente_nomChanging(string value);
+    partial void Onpaciente_nomChanged();
+    partial void Onpaciente_apeChanging(string value);
+    partial void Onpaciente_apeChanged();
+    partial void Onpaciente_telChanging(string value);
+    partial void Onpaciente_telChanged();
+    partial void Onpaciente_domChanging(string value);
+    partial void Onpaciente_domChanged();
+    partial void Onpaciente_idobrasocialChanging(System.Nullable<int> value);
+    partial void Onpaciente_idobrasocialChanged();
+    partial void Onpaciente_fecnacChanging(System.Nullable<System.DateTime> value);
+    partial void Onpaciente_fecnacChanged();
+    partial void Onpaciente_docChanging(string value);
+    partial void Onpaciente_docChanged();
+    #endregion
+		
+		public paciente()
+		{
+			this._obrasocial = default(EntityRef<obrasocial>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_paciente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_paciente
+		{
+			get
+			{
+				return this._Id_paciente;
+			}
+			set
+			{
+				if ((this._Id_paciente != value))
+				{
+					this.OnId_pacienteChanging(value);
+					this.SendPropertyChanging();
+					this._Id_paciente = value;
+					this.SendPropertyChanged("Id_paciente");
+					this.OnId_pacienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_nom", DbType="Char(30)")]
+		public string paciente_nom
+		{
+			get
+			{
+				return this._paciente_nom;
+			}
+			set
+			{
+				if ((this._paciente_nom != value))
+				{
+					this.Onpaciente_nomChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_nom = value;
+					this.SendPropertyChanged("paciente_nom");
+					this.Onpaciente_nomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_ape", DbType="Char(30)")]
+		public string paciente_ape
+		{
+			get
+			{
+				return this._paciente_ape;
+			}
+			set
+			{
+				if ((this._paciente_ape != value))
+				{
+					this.Onpaciente_apeChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_ape = value;
+					this.SendPropertyChanged("paciente_ape");
+					this.Onpaciente_apeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_tel", DbType="Char(30)")]
+		public string paciente_tel
+		{
+			get
+			{
+				return this._paciente_tel;
+			}
+			set
+			{
+				if ((this._paciente_tel != value))
+				{
+					this.Onpaciente_telChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_tel = value;
+					this.SendPropertyChanged("paciente_tel");
+					this.Onpaciente_telChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_dom", DbType="Char(30)")]
+		public string paciente_dom
+		{
+			get
+			{
+				return this._paciente_dom;
+			}
+			set
+			{
+				if ((this._paciente_dom != value))
+				{
+					this.Onpaciente_domChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_dom = value;
+					this.SendPropertyChanged("paciente_dom");
+					this.Onpaciente_domChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_idobrasocial", DbType="Int")]
+		public System.Nullable<int> paciente_idobrasocial
+		{
+			get
+			{
+				return this._paciente_idobrasocial;
+			}
+			set
+			{
+				if ((this._paciente_idobrasocial != value))
+				{
+					if (this._obrasocial.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onpaciente_idobrasocialChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_idobrasocial = value;
+					this.SendPropertyChanged("paciente_idobrasocial");
+					this.Onpaciente_idobrasocialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_fecnac", DbType="Date")]
+		public System.Nullable<System.DateTime> paciente_fecnac
+		{
+			get
+			{
+				return this._paciente_fecnac;
+			}
+			set
+			{
+				if ((this._paciente_fecnac != value))
+				{
+					this.Onpaciente_fecnacChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_fecnac = value;
+					this.SendPropertyChanged("paciente_fecnac");
+					this.Onpaciente_fecnacChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paciente_doc", DbType="NChar(30)")]
+		public string paciente_doc
+		{
+			get
+			{
+				return this._paciente_doc;
+			}
+			set
+			{
+				if ((this._paciente_doc != value))
+				{
+					this.Onpaciente_docChanging(value);
+					this.SendPropertyChanging();
+					this._paciente_doc = value;
+					this.SendPropertyChanged("paciente_doc");
+					this.Onpaciente_docChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="obrasocial_paciente", Storage="_obrasocial", ThisKey="paciente_idobrasocial", OtherKey="Id_ObraSocial", IsForeignKey=true)]
+		public obrasocial obrasocial
+		{
+			get
+			{
+				return this._obrasocial.Entity;
+			}
+			set
+			{
+				obrasocial previousValue = this._obrasocial.Entity;
+				if (((previousValue != value) 
+							|| (this._obrasocial.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._obrasocial.Entity = null;
+						previousValue.pacientes.Remove(this);
+					}
+					this._obrasocial.Entity = value;
+					if ((value != null))
+					{
+						value.pacientes.Add(this);
+						this._paciente_idobrasocial = value.Id_ObraSocial;
+					}
+					else
+					{
+						this._paciente_idobrasocial = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("obrasocial");
 				}
 			}
 		}

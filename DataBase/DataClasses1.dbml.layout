@@ -33,5 +33,18 @@
         <classShapeMoniker Id="5afe7cd3-63df-4083-9414-11d88109e6af" />
       </nodes>
     </associationConnector>
+    <classShape Id="a1c6edbc-d79c-423f-9bdf-232f9880f239" absoluteBounds="1.25, 2.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataClasses1DataContext/paciente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3497caf8-771a-480a-b9cb-8b44e1726b63" absoluteBounds="1.2650000000000001, 2.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.25 : 1.69399251302083); (2.25 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/obrasocial/obrasocial_paciente" />
+      <nodes>
+        <classShapeMoniker Id="cb954247-f6ff-4aae-98bc-7bf5a37cd1d7" />
+        <classShapeMoniker Id="a1c6edbc-d79c-423f-9bdf-232f9880f239" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

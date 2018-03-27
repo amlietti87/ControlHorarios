@@ -71,6 +71,12 @@
     <Compile Include="ObraSocial.Designer.cs">
       <DependentUpon>ObraSocial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paciente.Designer.cs">
+      <DependentUpon>Paciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     <EmbeddedResource Include="ObraSocial.resx">
       <DependentUpon>ObraSocial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Paciente.resx">
+      <DependentUpon>Paciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profesion.resx">
       <DependentUpon>Profesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +121,7 @@
     <EmbeddedResource Include="TipodeHora.resx">
       <DependentUpon>TipodeHora.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DataBase.ListarPacientesResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarTerapeutasResult.datasource" />
     <None Include="Properties\DataSources\DataBase.obrasocial.datasource" />
     <None Include="Properties\DataSources\DataBase.profesion.datasource" />
