@@ -60,10 +60,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
             this.grp_Listados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).BeginInit();
             this.grp_Datos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_Listados
@@ -350,6 +352,10 @@
             this.btn_cancel.Text = "Cancelar";
             this.btn_cancel.UseVisualStyleBackColor = true;
             // 
+            // Validaciones
+            // 
+            this.Validaciones.ContainerControl = this;
+            // 
             // Paciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).EndInit();
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -401,5 +408,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_confirm;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider Validaciones;
     }
 }
