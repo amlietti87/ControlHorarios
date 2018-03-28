@@ -21,7 +21,6 @@ namespace Escritorio
             InitializeComponent();
             LlenarComboBox();
             Pacientes_Load();
-            //dtp_fecnac.Value = DateTime.Today;
         }
 
         private void LlenarComboBox()
@@ -61,6 +60,7 @@ namespace Escritorio
             grp_Listados.Enabled = true;
             dgv_Pac.AllowUserToAddRows = false;
             dgv_Pac.ReadOnly = true;
+            dtp_fecnac.Value = DateTime.Today;
         }
 
         private bool ValidarCampos()
@@ -271,6 +271,15 @@ namespace Escritorio
         private void txt_dom_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.Clear();
+        }
+
+        private void dgv_Pac_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_name.Text = dgv_Pac.CurrentRow.Cells[1].Value.ToString().Trim();
+            txt_ape.Text = dgv_Pac.CurrentRow.Cells[2].Value.ToString().Trim();
+            txt_dom.Text = dgv_Pac.CurrentRow.Cells[6].Value.ToString().Trim();
+            txt_tel.Text = dgv_Pac.CurrentRow.Cells[5].Value.ToString().Trim();
+            txt_doc.Text = dgv_Pac.CurrentRow.Cells[3].Value.ToString().Trim();
         }
     }
 }

@@ -53,3 +53,4 @@ C:\Users\Andres\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csp
 C:\Users\Andres\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
 C:\Users\Andres\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\Andres\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.pdb
+C:\Users\andre\source\repos\ControlHorarios\Escritorio\obj\Debug\Escritorio.Paciente.resources

@@ -34,16 +34,8 @@
             this.btn_updte = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.dgv_Pac = new System.Windows.Forms.DataGridView();
-            this.idpacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacienteapeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientedocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientefecnacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientetelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientedomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obrasocialnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listarPacientesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_Datos = new System.Windows.Forms.GroupBox();
+            this.dtp_fecnac = new System.Windows.Forms.DateTimePicker();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.cmb_OS = new System.Windows.Forms.ComboBox();
@@ -60,12 +52,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dtp_fecnac = new System.Windows.Forms.DateTimePicker();
+            this.idpacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacientenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteapeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacientedocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacientefecnacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacientetelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacientedomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obrasocialnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listarPacientesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_Listados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pac)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).BeginInit();
             this.grp_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_Listados
@@ -74,21 +74,18 @@
             this.grp_Listados.Controls.Add(this.btn_updte);
             this.grp_Listados.Controls.Add(this.btn_new);
             this.grp_Listados.Controls.Add(this.dgv_Pac);
-            this.grp_Listados.Location = new System.Drawing.Point(4, 25);
-            this.grp_Listados.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.grp_Listados.Location = new System.Drawing.Point(2, 13);
             this.grp_Listados.Name = "grp_Listados";
-            this.grp_Listados.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.grp_Listados.Size = new System.Drawing.Size(1876, 521);
+            this.grp_Listados.Size = new System.Drawing.Size(938, 271);
             this.grp_Listados.TabIndex = 0;
             this.grp_Listados.TabStop = false;
             this.grp_Listados.Text = "Pacientes";
             // 
             // btn_del
             // 
-            this.btn_del.Location = new System.Drawing.Point(1640, 369);
-            this.btn_del.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_del.Location = new System.Drawing.Point(820, 192);
             this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(160, 58);
+            this.btn_del.Size = new System.Drawing.Size(80, 30);
             this.btn_del.TabIndex = 3;
             this.btn_del.Text = "Eliminar";
             this.btn_del.UseVisualStyleBackColor = true;
@@ -96,10 +93,9 @@
             // 
             // btn_updte
             // 
-            this.btn_updte.Location = new System.Drawing.Point(1640, 231);
-            this.btn_updte.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_updte.Location = new System.Drawing.Point(820, 120);
             this.btn_updte.Name = "btn_updte";
-            this.btn_updte.Size = new System.Drawing.Size(160, 58);
+            this.btn_updte.Size = new System.Drawing.Size(80, 30);
             this.btn_updte.TabIndex = 2;
             this.btn_updte.Text = "Modificar";
             this.btn_updte.UseVisualStyleBackColor = true;
@@ -107,10 +103,9 @@
             // 
             // btn_new
             // 
-            this.btn_new.Location = new System.Drawing.Point(1640, 85);
-            this.btn_new.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_new.Location = new System.Drawing.Point(820, 44);
             this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(160, 58);
+            this.btn_new.Size = new System.Drawing.Size(80, 30);
             this.btn_new.TabIndex = 1;
             this.btn_new.Text = "Agregar";
             this.btn_new.UseVisualStyleBackColor = true;
@@ -130,11 +125,184 @@
             this.pacientedomDataGridViewTextBoxColumn,
             this.obrasocialnomDataGridViewTextBoxColumn});
             this.dgv_Pac.DataSource = this.listarPacientesResultBindingSource;
-            this.dgv_Pac.Location = new System.Drawing.Point(32, 38);
-            this.dgv_Pac.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgv_Pac.Location = new System.Drawing.Point(16, 20);
             this.dgv_Pac.Name = "dgv_Pac";
-            this.dgv_Pac.Size = new System.Drawing.Size(1488, 442);
+            this.dgv_Pac.Size = new System.Drawing.Size(744, 230);
             this.dgv_Pac.TabIndex = 0;
+            this.dgv_Pac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Pac_CellClick);
+            // 
+            // grp_Datos
+            // 
+            this.grp_Datos.Controls.Add(this.dtp_fecnac);
+            this.grp_Datos.Controls.Add(this.btn_cancel);
+            this.grp_Datos.Controls.Add(this.btn_confirm);
+            this.grp_Datos.Controls.Add(this.cmb_OS);
+            this.grp_Datos.Controls.Add(this.label7);
+            this.grp_Datos.Controls.Add(this.txt_dom);
+            this.grp_Datos.Controls.Add(this.txt_tel);
+            this.grp_Datos.Controls.Add(this.label4);
+            this.grp_Datos.Controls.Add(this.label5);
+            this.grp_Datos.Controls.Add(this.label6);
+            this.grp_Datos.Controls.Add(this.txt_doc);
+            this.grp_Datos.Controls.Add(this.txt_ape);
+            this.grp_Datos.Controls.Add(this.txt_name);
+            this.grp_Datos.Controls.Add(this.label3);
+            this.grp_Datos.Controls.Add(this.label2);
+            this.grp_Datos.Controls.Add(this.label1);
+            this.grp_Datos.Location = new System.Drawing.Point(2, 290);
+            this.grp_Datos.Name = "grp_Datos";
+            this.grp_Datos.Size = new System.Drawing.Size(938, 231);
+            this.grp_Datos.TabIndex = 1;
+            this.grp_Datos.TabStop = false;
+            this.grp_Datos.Text = "Datos Paciente";
+            // 
+            // dtp_fecnac
+            // 
+            this.dtp_fecnac.Location = new System.Drawing.Point(352, 35);
+            this.dtp_fecnac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_fecnac.Name = "dtp_fecnac";
+            this.dtp_fecnac.Size = new System.Drawing.Size(102, 20);
+            this.dtp_fecnac.TabIndex = 16;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(546, 194);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(80, 30);
+            this.btn_cancel.TabIndex = 15;
+            this.btn_cancel.Text = "Cancelar";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // btn_confirm
+            // 
+            this.btn_confirm.Location = new System.Drawing.Point(283, 194);
+            this.btn_confirm.Name = "btn_confirm";
+            this.btn_confirm.Size = new System.Drawing.Size(80, 30);
+            this.btn_confirm.TabIndex = 14;
+            this.btn_confirm.Text = "Confirmar";
+            this.btn_confirm.UseVisualStyleBackColor = true;
+            this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
+            // 
+            // cmb_OS
+            // 
+            this.cmb_OS.FormattingEnabled = true;
+            this.cmb_OS.Location = new System.Drawing.Point(615, 35);
+            this.cmb_OS.Name = "cmb_OS";
+            this.cmb_OS.Size = new System.Drawing.Size(121, 21);
+            this.cmb_OS.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(543, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Obra Social";
+            // 
+            // txt_dom
+            // 
+            this.txt_dom.Location = new System.Drawing.Point(352, 141);
+            this.txt_dom.MaxLength = 30;
+            this.txt_dom.Name = "txt_dom";
+            this.txt_dom.Size = new System.Drawing.Size(100, 20);
+            this.txt_dom.TabIndex = 11;
+            this.txt_dom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dom_KeyPress);
+            // 
+            // txt_tel
+            // 
+            this.txt_tel.Location = new System.Drawing.Point(352, 88);
+            this.txt_tel.MaxLength = 30;
+            this.txt_tel.Name = "txt_tel";
+            this.txt_tel.Size = new System.Drawing.Size(100, 20);
+            this.txt_tel.TabIndex = 10;
+            this.txt_tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tel_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(280, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Domicilio";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(280, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Telefono";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(280, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Fec. Nac.";
+            // 
+            // txt_doc
+            // 
+            this.txt_doc.Location = new System.Drawing.Point(89, 141);
+            this.txt_doc.MaxLength = 30;
+            this.txt_doc.Name = "txt_doc";
+            this.txt_doc.Size = new System.Drawing.Size(100, 20);
+            this.txt_doc.TabIndex = 5;
+            this.txt_doc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_doc_KeyPress);
+            // 
+            // txt_ape
+            // 
+            this.txt_ape.Location = new System.Drawing.Point(89, 88);
+            this.txt_ape.MaxLength = 30;
+            this.txt_ape.Name = "txt_ape";
+            this.txt_ape.Size = new System.Drawing.Size(100, 20);
+            this.txt_ape.TabIndex = 4;
+            this.txt_ape.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ape_KeyPress);
+            // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(89, 35);
+            this.txt_name.MaxLength = 30;
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(100, 20);
+            this.txt_name.TabIndex = 3;
+            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 144);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Documento";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Apellido";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
+            // 
+            // Validaciones
+            // 
+            this.Validaciones.ContainerControl = this;
             // 
             // idpacienteDataGridViewTextBoxColumn
             // 
@@ -196,211 +364,21 @@
             // 
             this.listarPacientesResultBindingSource.DataSource = typeof(DataBase.ListarPacientesResult);
             // 
-            // grp_Datos
-            // 
-            this.grp_Datos.Controls.Add(this.dtp_fecnac);
-            this.grp_Datos.Controls.Add(this.btn_cancel);
-            this.grp_Datos.Controls.Add(this.btn_confirm);
-            this.grp_Datos.Controls.Add(this.cmb_OS);
-            this.grp_Datos.Controls.Add(this.label7);
-            this.grp_Datos.Controls.Add(this.txt_dom);
-            this.grp_Datos.Controls.Add(this.txt_tel);
-            this.grp_Datos.Controls.Add(this.label4);
-            this.grp_Datos.Controls.Add(this.label5);
-            this.grp_Datos.Controls.Add(this.label6);
-            this.grp_Datos.Controls.Add(this.txt_doc);
-            this.grp_Datos.Controls.Add(this.txt_ape);
-            this.grp_Datos.Controls.Add(this.txt_name);
-            this.grp_Datos.Controls.Add(this.label3);
-            this.grp_Datos.Controls.Add(this.label2);
-            this.grp_Datos.Controls.Add(this.label1);
-            this.grp_Datos.Location = new System.Drawing.Point(4, 558);
-            this.grp_Datos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.grp_Datos.Name = "grp_Datos";
-            this.grp_Datos.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.grp_Datos.Size = new System.Drawing.Size(1876, 444);
-            this.grp_Datos.TabIndex = 1;
-            this.grp_Datos.TabStop = false;
-            this.grp_Datos.Text = "Datos Paciente";
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(1092, 373);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(160, 58);
-            this.btn_cancel.TabIndex = 15;
-            this.btn_cancel.Text = "Cancelar";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // btn_confirm
-            // 
-            this.btn_confirm.Location = new System.Drawing.Point(566, 373);
-            this.btn_confirm.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btn_confirm.Name = "btn_confirm";
-            this.btn_confirm.Size = new System.Drawing.Size(160, 58);
-            this.btn_confirm.TabIndex = 14;
-            this.btn_confirm.Text = "Confirmar";
-            this.btn_confirm.UseVisualStyleBackColor = true;
-            this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
-            // 
-            // cmb_OS
-            // 
-            this.cmb_OS.FormattingEnabled = true;
-            this.cmb_OS.Location = new System.Drawing.Point(1230, 67);
-            this.cmb_OS.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.cmb_OS.Name = "cmb_OS";
-            this.cmb_OS.Size = new System.Drawing.Size(238, 33);
-            this.cmb_OS.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1086, 73);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 25);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Obra Social";
-            // 
-            // txt_dom
-            // 
-            this.txt_dom.Location = new System.Drawing.Point(704, 271);
-            this.txt_dom.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txt_dom.MaxLength = 30;
-            this.txt_dom.Name = "txt_dom";
-            this.txt_dom.Size = new System.Drawing.Size(196, 31);
-            this.txt_dom.TabIndex = 11;
-            this.txt_dom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dom_KeyPress);
-            // 
-            // txt_tel
-            // 
-            this.txt_tel.Location = new System.Drawing.Point(704, 169);
-            this.txt_tel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txt_tel.MaxLength = 30;
-            this.txt_tel.Name = "txt_tel";
-            this.txt_tel.Size = new System.Drawing.Size(196, 31);
-            this.txt_tel.TabIndex = 10;
-            this.txt_tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tel_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(560, 277);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Domicilio";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(560, 175);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 25);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Telefono";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(560, 73);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 25);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Fec. Nac.";
-            // 
-            // txt_doc
-            // 
-            this.txt_doc.Location = new System.Drawing.Point(178, 271);
-            this.txt_doc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txt_doc.MaxLength = 30;
-            this.txt_doc.Name = "txt_doc";
-            this.txt_doc.Size = new System.Drawing.Size(196, 31);
-            this.txt_doc.TabIndex = 5;
-            this.txt_doc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_doc_KeyPress);
-            // 
-            // txt_ape
-            // 
-            this.txt_ape.Location = new System.Drawing.Point(178, 169);
-            this.txt_ape.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txt_ape.MaxLength = 30;
-            this.txt_ape.Name = "txt_ape";
-            this.txt_ape.Size = new System.Drawing.Size(196, 31);
-            this.txt_ape.TabIndex = 4;
-            this.txt_ape.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ape_KeyPress);
-            // 
-            // txt_name
-            // 
-            this.txt_name.Location = new System.Drawing.Point(178, 67);
-            this.txt_name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txt_name.MaxLength = 30;
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(196, 31);
-            this.txt_name.TabIndex = 3;
-            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 277);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Documento";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 175);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Apellido";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 73);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
-            // 
-            // Validaciones
-            // 
-            this.Validaciones.ContainerControl = this;
-            // 
-            // dtp_fecnac
-            // 
-            this.dtp_fecnac.Location = new System.Drawing.Point(704, 67);
-            this.dtp_fecnac.Name = "dtp_fecnac";
-            this.dtp_fecnac.Size = new System.Drawing.Size(200, 31);
-            this.dtp_fecnac.TabIndex = 16;
-            // 
             // Paciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1888, 1025);
+            this.ClientSize = new System.Drawing.Size(945, 525);
             this.Controls.Add(this.grp_Datos);
             this.Controls.Add(this.grp_Listados);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Paciente";
             this.Text = "Paciente";
             this.grp_Listados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pac)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).EndInit();
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarPacientesResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
