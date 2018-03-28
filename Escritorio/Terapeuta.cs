@@ -178,7 +178,7 @@ namespace Escritorio
         {
             if (txt_name.Text == "")
             {
-                MessageBox.Show("Debe seleccionar una profesion para poder eliminarla");
+                MessageBox.Show("Debe seleccionar un terapeuta para poder eliminarlo");
                 this.Terapeuta_Load();
             }
             else
@@ -252,13 +252,13 @@ namespace Escritorio
                             terapeuta.terapeuta_tel = txt_tel.Text.Trim();
                             terapeuta.terapeuta_idprofesion = (Int32)cmb_prof.SelectedValue;
                             cc.SubmitChanges();
-                            MessageBox.Show("La profesion ha sido modificada");
+                            MessageBox.Show("El terapeuta ha sido modificado");
                             break;
                         }
                         catch (Exception ex)
                         {
                             System.Console.WriteLine(ex.Message);
-                            MessageBox.Show("La profesion no se ha podido actualizar, por favor vuelva a intentar");
+                            MessageBox.Show("El terapeuta no se ha podido actualizar, por favor vuelva a intentar");
                             break;
                         }
                 }
