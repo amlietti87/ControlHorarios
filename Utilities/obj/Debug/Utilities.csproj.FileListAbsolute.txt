@@ -10,3 +10,9 @@ C:\Users\andre\source\repos\ControlHorarios\Utilities\obj\Debug\Utilities.csproj
 C:\Users\andre\source\repos\ControlHorarios\Utilities\obj\Debug\Utilities.dll
 C:\Users\andre\source\repos\ControlHorarios\Utilities\obj\Debug\Utilities.pdb
 C:\Users\andre\source\repos\ControlHorarios\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache
+C:\Andres\ControlHorarios\Utilities\bin\Debug\Utilities.dll
+C:\Andres\ControlHorarios\Utilities\bin\Debug\Utilities.pdb
+C:\Andres\ControlHorarios\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Andres\ControlHorarios\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Andres\ControlHorarios\Utilities\obj\Debug\Utilities.dll
+C:\Andres\ControlHorarios\Utilities\obj\Debug\Utilities.pdb

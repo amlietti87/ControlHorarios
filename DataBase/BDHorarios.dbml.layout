@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BDHorarios">
+  <DataContextMoniker Name="/BDHorariosDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d1c9afdb-ba94-4a26-b565-379dc41fef67" absoluteBounds="3.75, 2.125, 2, 2.5401025390625">
+      <DataClassMoniker Name="/BDHorariosDataContext/Horas_Trabajada" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6bb95765-255e-4518-a562-96d0916bec78" absoluteBounds="3.7649999999999997, 2.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c51c45ab-f9b6-4e77-a577-e8ba93f91ccd" absoluteBounds="3.75, 0.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDHorariosDataContext/Obras_Sociale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="daedc6b8-b78d-4e7d-8af1-6c8d01703c06" absoluteBounds="3.765, 1.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82151a41-0e41-4ec2-a90b-dd3f655e1b4e" absoluteBounds="6.625, 0.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/BDHorariosDataContext/Paciente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e240f3cd-4e86-45d1-9d21-53fed05d0379" absoluteBounds="6.64, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.625 : 2.54890055338542); (5.75 : 2.54890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDHorariosDataContext/Paciente/Paciente_Horas_Trabajada" />
+      <nodes>
+        <classShapeMoniker Id="82151a41-0e41-4ec2-a90b-dd3f655e1b4e" />
+        <classShapeMoniker Id="d1c9afdb-ba94-4a26-b565-379dc41fef67" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 1.22199625651042); (6.625 : 1.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDHorariosDataContext/Obras_Sociale/Obras_Sociale_Paciente" />
+      <nodes>
+        <classShapeMoniker Id="c51c45ab-f9b6-4e77-a577-e8ba93f91ccd" />
+        <classShapeMoniker Id="82151a41-0e41-4ec2-a90b-dd3f655e1b4e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="75dd14af-d5d2-42a9-a076-cc565820289b" absoluteBounds="1, 2.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BDHorariosDataContext/Tipos_Hora" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9431cb71-f85d-418a-a937-8d50542cd698" absoluteBounds="1.0149999999999997, 2.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 3.19314697265625); (3.01041666666667 : 3.19314697265625 : JumpStart); (3.17708333333333 : 3.19314697265625 : JumpEnd); (3.75 : 3.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDHorariosDataContext/Tipos_Hora/Tipos_Hora_Horas_Trabajada" />
+      <nodes>
+        <classShapeMoniker Id="75dd14af-d5d2-42a9-a076-cc565820289b" />
+        <classShapeMoniker Id="d1c9afdb-ba94-4a26-b565-379dc41fef67" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f33249b7-78b8-4d8e-b3e7-14545c89c526" absoluteBounds="0.5, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDHorariosDataContext/Profesione" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b2f7e68-8af2-4fbe-a41d-06c820839d3a" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7716657-5338-4ee5-88cb-fe1e2f298d71" absoluteBounds="1.125, 4.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/BDHorariosDataContext/Terapeuta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77740ff4-f0ae-479e-8783-cde89d4283fb" absoluteBounds="1.1400000000000001, 4.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 4.45755126953125); (3.75 : 4.45755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDHorariosDataContext/Terapeuta/Terapeuta_Horas_Trabajada" />
+      <nodes>
+        <classShapeMoniker Id="c7716657-5338-4ee5-88cb-fe1e2f298d71" />
+        <classShapeMoniker Id="d1c9afdb-ba94-4a26-b565-379dc41fef67" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 1.09699625651042); (3.09375 : 1.09699625651042); (3.09375 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDHorariosDataContext/Profesione/Profesione_Terapeuta" />
+      <nodes>
+        <classShapeMoniker Id="f33249b7-78b8-4d8e-b3e7-14545c89c526" />
+        <classShapeMoniker Id="c7716657-5338-4ee5-88cb-fe1e2f298d71" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

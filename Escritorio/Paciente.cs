@@ -14,7 +14,7 @@ namespace Escritorio
     public partial class Paciente : Form
     {
         String Operacion;
-        private DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+        private DataBase.BDHorariosDataContext ch = new DataBase.BDHorariosDataContext();
 
         public Paciente()
         {
@@ -27,8 +27,8 @@ namespace Escritorio
         {
             // Sentencia para completar combobox de profesion.
             var ObrasSociales =
-                from c in cc.obrasocials
-                select new { OSId = c.Id_ObraSocial, OSNom = c.obrasocial_nom };
+                from c in ch.Obras_Sociales
+                select new { OSId = c.ObSoc_Id, OSNom = c.ObSoc_Nom };
 
             cmb_OS.DataSource = ObrasSociales.ToList();
             cmb_OS.DisplayMember = "OSNom";
@@ -38,8 +38,7 @@ namespace Escritorio
 
         void ListarPacientes()
         {
-            //DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_Pac.DataSource = cc.ListarPacientes();
+            dgv_Pac.DataSource = ch.ListarPacientes();
         }
 
         void LimpiarCampos()
@@ -162,10 +161,10 @@ namespace Escritorio
             {
                 try
                 {
-                    //DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+                    
                     int PacId = Convert.ToInt32(dgv_Pac.CurrentRow.Cells[0].Value);
-                    DataBase.paciente PacDelete = cc.pacientes.Single(w => w.Id_paciente == PacId);
-                    cc.pacientes.DeleteOnSubmit(PacDelete);
+                    DataBase.Paciente PacDelete = ch.Pacientes.Single(w => w.Paciente_Id == PacId);
+                    ch.Pacientes.DeleteOnSubmit(PacDelete);
                     MessageBox.Show("El paciente seleccionada ha sido eliminada correctamente");
                     this.Pacientes_Load();
 
@@ -182,7 +181,7 @@ namespace Escritorio
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             Validaciones.Clear();
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+            
 
             if (ValidarCampos())
             {
@@ -191,20 +190,20 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.paciente newPac = new DataBase.paciente
+                            DataBase.Paciente newPac = new DataBase.Paciente
                             {
-                                paciente_nom = txt_name.Text.Trim(),
-                                paciente_ape = txt_ape.Text.Trim(),
-                                paciente_doc = txt_doc.Text.Trim(),
-                                paciente_dom = txt_dom.Text.Trim(),
-                                paciente_tel = txt_tel.Text.Trim(),
-                                paciente_idobrasocial = (Int32)cmb_OS.SelectedValue,
-                                paciente_fecnac = dtp_fecnac.Value.Date
+                                Paciente_Nom = txt_name.Text.Trim(),
+                                Paciente_Ape = txt_ape.Text.Trim(),
+                                Paciente_Doc = txt_doc.Text.Trim(),
+                                Paciente_Dom = txt_dom.Text.Trim(),
+                                Paciente_Tel = txt_tel.Text.Trim(),
+                                Paciente_OS = (Int32)cmb_OS.SelectedValue,
+                                Paciente_FecNac = dtp_fecnac.Value.Date.ToString()
 
 
                             };
-                            cc.pacientes.InsertOnSubmit(newPac);
-                            cc.SubmitChanges();
+                            ch.Pacientes.InsertOnSubmit(newPac);
+                            ch.SubmitChanges();
                             MessageBox.Show("Se ha cargado un nuevo paciente");
                             break;
                         }
@@ -219,15 +218,15 @@ namespace Escritorio
                         try
                         {
                             int PacId = Convert.ToInt32(dgv_Pac.CurrentRow.Cells[0].Value);
-                            DataBase.paciente paciente = cc.pacientes.Where(w => w.Id_paciente == PacId).FirstOrDefault();
-                            paciente.paciente_nom = txt_name.Text.Trim();
-                            paciente.paciente_ape = txt_ape.Text.Trim();
-                            paciente.paciente_doc = txt_doc.Text.Trim();
-                            paciente.paciente_dom = txt_dom.Text.Trim();
-                            paciente.paciente_tel = txt_tel.Text.Trim();
-                            paciente.paciente_idobrasocial = (Int32)cmb_OS.SelectedValue;
-                            paciente.paciente_fecnac = dtp_fecnac.Value.Date;
-                            cc.SubmitChanges();
+                            DataBase.Paciente paciente = ch.Pacientes.Where(w => w.Paciente_Id == PacId).FirstOrDefault();
+                            paciente.Paciente_Nom = txt_name.Text.Trim();
+                            paciente.Paciente_Ape = txt_ape.Text.Trim();
+                            paciente.Paciente_Doc = txt_doc.Text.Trim();
+                            paciente.Paciente_Dom = txt_dom.Text.Trim();
+                            paciente.Paciente_Tel = txt_tel.Text.Trim();
+                            paciente.Paciente_OS = (Int32)cmb_OS.SelectedValue;
+                            paciente.Paciente_FecNac = dtp_fecnac.Value.Date.ToString();
+                            ch.SubmitChanges();
                             MessageBox.Show("el paciente ha sido modificado");
                             break;
                         }

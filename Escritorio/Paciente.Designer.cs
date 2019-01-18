@@ -52,15 +52,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idpacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacienteapeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientedocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientefecnacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientetelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacientedomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obrasocialnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listarPacientesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obraSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grp_Listados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pac)).BeginInit();
             this.grp_Datos.SuspendLayout();
@@ -116,14 +116,14 @@
             this.dgv_Pac.AutoGenerateColumns = false;
             this.dgv_Pac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Pac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idpacienteDataGridViewTextBoxColumn,
-            this.pacientenomDataGridViewTextBoxColumn,
-            this.pacienteapeDataGridViewTextBoxColumn,
-            this.pacientedocDataGridViewTextBoxColumn,
-            this.pacientefecnacDataGridViewTextBoxColumn,
-            this.pacientetelDataGridViewTextBoxColumn,
-            this.pacientedomDataGridViewTextBoxColumn,
-            this.obrasocialnomDataGridViewTextBoxColumn});
+            this.iDDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.documentoDataGridViewTextBoxColumn,
+            this.fechaNacDataGridViewTextBoxColumn,
+            this.domicilioDataGridViewTextBoxColumn,
+            this.telefonoDataGridViewTextBoxColumn,
+            this.obraSocialDataGridViewTextBoxColumn});
             this.dgv_Pac.DataSource = this.listarPacientesResultBindingSource;
             this.dgv_Pac.Location = new System.Drawing.Point(16, 20);
             this.dgv_Pac.Name = "dgv_Pac";
@@ -159,7 +159,7 @@
             // dtp_fecnac
             // 
             this.dtp_fecnac.Location = new System.Drawing.Point(352, 35);
-            this.dtp_fecnac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_fecnac.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_fecnac.Name = "dtp_fecnac";
             this.dtp_fecnac.Size = new System.Drawing.Size(102, 20);
             this.dtp_fecnac.TabIndex = 16;
@@ -304,65 +304,58 @@
             // 
             this.Validaciones.ContainerControl = this;
             // 
-            // idpacienteDataGridViewTextBoxColumn
-            // 
-            this.idpacienteDataGridViewTextBoxColumn.DataPropertyName = "Id_paciente";
-            this.idpacienteDataGridViewTextBoxColumn.HeaderText = "Id_paciente";
-            this.idpacienteDataGridViewTextBoxColumn.Name = "idpacienteDataGridViewTextBoxColumn";
-            this.idpacienteDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pacientenomDataGridViewTextBoxColumn
-            // 
-            this.pacientenomDataGridViewTextBoxColumn.DataPropertyName = "paciente_nom";
-            this.pacientenomDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.pacientenomDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacientenomDataGridViewTextBoxColumn.Name = "pacientenomDataGridViewTextBoxColumn";
-            // 
-            // pacienteapeDataGridViewTextBoxColumn
-            // 
-            this.pacienteapeDataGridViewTextBoxColumn.DataPropertyName = "paciente_ape";
-            this.pacienteapeDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.pacienteapeDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacienteapeDataGridViewTextBoxColumn.Name = "pacienteapeDataGridViewTextBoxColumn";
-            // 
-            // pacientedocDataGridViewTextBoxColumn
-            // 
-            this.pacientedocDataGridViewTextBoxColumn.DataPropertyName = "paciente_doc";
-            this.pacientedocDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.pacientedocDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacientedocDataGridViewTextBoxColumn.Name = "pacientedocDataGridViewTextBoxColumn";
-            // 
-            // pacientefecnacDataGridViewTextBoxColumn
-            // 
-            this.pacientefecnacDataGridViewTextBoxColumn.DataPropertyName = "paciente_fecnac";
-            this.pacientefecnacDataGridViewTextBoxColumn.HeaderText = "F. Nac.";
-            this.pacientefecnacDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacientefecnacDataGridViewTextBoxColumn.Name = "pacientefecnacDataGridViewTextBoxColumn";
-            // 
-            // pacientetelDataGridViewTextBoxColumn
-            // 
-            this.pacientetelDataGridViewTextBoxColumn.DataPropertyName = "paciente_tel";
-            this.pacientetelDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.pacientetelDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacientetelDataGridViewTextBoxColumn.Name = "pacientetelDataGridViewTextBoxColumn";
-            // 
-            // pacientedomDataGridViewTextBoxColumn
-            // 
-            this.pacientedomDataGridViewTextBoxColumn.DataPropertyName = "paciente_dom";
-            this.pacientedomDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.pacientedomDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.pacientedomDataGridViewTextBoxColumn.Name = "pacientedomDataGridViewTextBoxColumn";
-            // 
-            // obrasocialnomDataGridViewTextBoxColumn
-            // 
-            this.obrasocialnomDataGridViewTextBoxColumn.DataPropertyName = "obrasocial_nom";
-            this.obrasocialnomDataGridViewTextBoxColumn.HeaderText = "Obra Social";
-            this.obrasocialnomDataGridViewTextBoxColumn.MaxInputLength = 50;
-            this.obrasocialnomDataGridViewTextBoxColumn.Name = "obrasocialnomDataGridViewTextBoxColumn";
-            // 
             // listarPacientesResultBindingSource
             // 
             this.listarPacientesResultBindingSource.DataSource = typeof(DataBase.ListarPacientesResult);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            // 
+            // fechaNacDataGridViewTextBoxColumn
+            // 
+            this.fechaNacDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Nac";
+            this.fechaNacDataGridViewTextBoxColumn.HeaderText = "Fecha_Nac";
+            this.fechaNacDataGridViewTextBoxColumn.Name = "fechaNacDataGridViewTextBoxColumn";
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            // 
+            // obraSocialDataGridViewTextBoxColumn
+            // 
+            this.obraSocialDataGridViewTextBoxColumn.DataPropertyName = "Obra_Social";
+            this.obraSocialDataGridViewTextBoxColumn.HeaderText = "Obra_Social";
+            this.obraSocialDataGridViewTextBoxColumn.Name = "obraSocialDataGridViewTextBoxColumn";
             // 
             // Paciente
             // 
@@ -387,7 +380,6 @@
 
         private System.Windows.Forms.GroupBox grp_Listados;
         private System.Windows.Forms.DataGridView dgv_Pac;
-        private System.Windows.Forms.BindingSource listarPacientesResultBindingSource;
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Button btn_updte;
         private System.Windows.Forms.Button btn_new;
@@ -417,5 +409,14 @@
         private System.Windows.Forms.ComboBox cmb_OS;
         private System.Windows.Forms.ErrorProvider Validaciones;
         private System.Windows.Forms.DateTimePicker dtp_fecnac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obraSocialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource listarPacientesResultBindingSource;
     }
 }

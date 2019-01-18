@@ -34,20 +34,23 @@
             this.btn_updte = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.dgv_TdH = new System.Windows.Forms.DataGridView();
-            this.tipodehoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_Datos = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Validacion = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tipodehoranomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTipodeHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listarTiposHorasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_valor = new System.Windows.Forms.TextBox();
             this.grp_Listados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TdH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipodehoraBindingSource)).BeginInit();
             this.grp_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarTiposHorasResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_Listados
@@ -98,35 +101,34 @@
             this.dgv_TdH.AutoGenerateColumns = false;
             this.dgv_TdH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_TdH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idTipodeHoraDataGridViewTextBoxColumn,
-            this.tipodehoranomDataGridViewTextBoxColumn});
-            this.dgv_TdH.DataSource = this.tipodehoraBindingSource;
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.valorDataGridViewTextBoxColumn});
+            this.dgv_TdH.DataSource = this.listarTiposHorasResultBindingSource;
             this.dgv_TdH.Location = new System.Drawing.Point(46, 32);
             this.dgv_TdH.Name = "dgv_TdH";
             this.dgv_TdH.Size = new System.Drawing.Size(244, 150);
             this.dgv_TdH.TabIndex = 0;
             this.dgv_TdH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_TdH_CellClick);
             // 
-            // tipodehoraBindingSource
-            // 
-            this.tipodehoraBindingSource.DataSource = typeof(DataBase.tipodehora);
-            // 
             // grp_Datos
             // 
+            this.grp_Datos.Controls.Add(this.txt_valor);
+            this.grp_Datos.Controls.Add(this.label2);
             this.grp_Datos.Controls.Add(this.btn_cancel);
             this.grp_Datos.Controls.Add(this.btn_confirm);
             this.grp_Datos.Controls.Add(this.txt_name);
             this.grp_Datos.Controls.Add(this.label1);
             this.grp_Datos.Location = new System.Drawing.Point(6, 216);
             this.grp_Datos.Name = "grp_Datos";
-            this.grp_Datos.Size = new System.Drawing.Size(470, 129);
+            this.grp_Datos.Size = new System.Drawing.Size(470, 166);
             this.grp_Datos.TabIndex = 1;
             this.grp_Datos.TabStop = false;
             this.grp_Datos.Text = "Datos Tipo de Hora";
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(224, 91);
+            this.btn_cancel.Location = new System.Drawing.Point(224, 131);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(65, 26);
             this.btn_cancel.TabIndex = 3;
@@ -136,7 +138,7 @@
             // 
             // btn_confirm
             // 
-            this.btn_confirm.Location = new System.Drawing.Point(104, 91);
+            this.btn_confirm.Location = new System.Drawing.Point(104, 131);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(65, 26);
             this.btn_confirm.TabIndex = 2;
@@ -165,35 +167,60 @@
             // 
             this.Validacion.ContainerControl = this;
             // 
-            // tipodehoranomDataGridViewTextBoxColumn
+            // listarTiposHorasResultBindingSource
             // 
-            this.tipodehoranomDataGridViewTextBoxColumn.DataPropertyName = "tipodehora_nom";
-            this.tipodehoranomDataGridViewTextBoxColumn.HeaderText = "Tipo de Hora";
-            this.tipodehoranomDataGridViewTextBoxColumn.MaxInputLength = 50;
-            this.tipodehoranomDataGridViewTextBoxColumn.Name = "tipodehoranomDataGridViewTextBoxColumn";
+            this.listarTiposHorasResultBindingSource.DataSource = typeof(DataBase.ListarTiposHorasResult);
             // 
-            // idTipodeHoraDataGridViewTextBoxColumn
+            // idDataGridViewTextBoxColumn
             // 
-            this.idTipodeHoraDataGridViewTextBoxColumn.DataPropertyName = "Id_TipodeHora";
-            this.idTipodeHoraDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idTipodeHoraDataGridViewTextBoxColumn.MaxInputLength = 5;
-            this.idTipodeHoraDataGridViewTextBoxColumn.Name = "idTipodeHoraDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(46, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Valor Hora";
+            // 
+            // txt_valor
+            // 
+            this.txt_valor.Location = new System.Drawing.Point(156, 82);
+            this.txt_valor.Name = "txt_valor";
+            this.txt_valor.Size = new System.Drawing.Size(100, 20);
+            this.txt_valor.TabIndex = 5;
             // 
             // TipodeHora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 352);
+            this.ClientSize = new System.Drawing.Size(482, 388);
             this.Controls.Add(this.grp_Datos);
             this.Controls.Add(this.grp_Listados);
             this.Name = "TipodeHora";
             this.Text = "TipodeHora";
             this.grp_Listados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TdH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipodehoraBindingSource)).EndInit();
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarTiposHorasResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,7 +230,6 @@
         private System.Windows.Forms.GroupBox grp_Listados;
         private System.Windows.Forms.GroupBox grp_Datos;
         private System.Windows.Forms.DataGridView dgv_TdH;
-        private System.Windows.Forms.BindingSource tipodehoraBindingSource;
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Button btn_updte;
         private System.Windows.Forms.Button btn_new;
@@ -212,7 +238,11 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_confirm;
         private System.Windows.Forms.ErrorProvider Validacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTipodeHoraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipodehoranomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource listarTiposHorasResultBindingSource;
+        private System.Windows.Forms.TextBox txt_valor;
+        private System.Windows.Forms.Label label2;
     }
 }

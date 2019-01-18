@@ -13,6 +13,8 @@ namespace Escritorio
 {
     public partial class TipodeHora : Form
     {
+
+        private DataBase.BDHorariosDataContext ch = new DataBase.BDHorariosDataContext();
         String Operacion;
         public TipodeHora()
         {
@@ -22,8 +24,7 @@ namespace Escritorio
 
         void ListarTiposdeHoras()
         {
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_TdH.DataSource = cc.tipodehoras;
+            dgv_TdH.DataSource = ch.ListarTiposHoras();
         }
 
         void LimpiarCampo()
@@ -93,10 +94,9 @@ namespace Escritorio
             {
                 try
                 {
-                    DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
                     int TdHId = Convert.ToInt32(dgv_TdH.CurrentRow.Cells[0].Value);
-                    DataBase.tipodehora TdHDelete = cc.tipodehoras.Single(w => w.Id_TipodeHora == TdHId);
-                    cc.tipodehoras.DeleteOnSubmit(TdHDelete);
+                    DataBase.Tipos_Hora TdHDelete = ch.Tipos_Horas.Single(w => w.TipoHora_Id == TdHId);
+                    ch.Tipos_Horas.DeleteOnSubmit(TdHDelete);
                     MessageBox.Show("El tipo de hora seleccionado ha sido eliminado correctamente");
                     this.TipodeHora_Load();
 
@@ -113,8 +113,7 @@ namespace Escritorio
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             Validacion.Clear();
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-
+    
             if (ValidarNombre())
             {
                 switch (Operacion)
@@ -122,10 +121,11 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.tipodehora newTdH = new DataBase.tipodehora();
-                            newTdH.tipodehora_nom = txt_name.Text.Trim();
-                            cc.tipodehoras.InsertOnSubmit(newTdH);
-                            cc.SubmitChanges();
+                            DataBase.Tipos_Hora newTdH = new DataBase.Tipos_Hora();
+                            newTdH.TipoHora_Nom = txt_name.Text.Trim();
+                            newTdH.TipoHora_Precio = Convert.ToDecimal(txt_valor.Text.Trim());
+                            ch.Tipos_Horas.InsertOnSubmit(newTdH);
+                            ch.SubmitChanges();
                             MessageBox.Show("Nuevo tipo de hora cargado");
                             break;
                         }
@@ -140,9 +140,10 @@ namespace Escritorio
                         try
                         {
                             int TdHId = Convert.ToInt32(dgv_TdH.CurrentRow.Cells[0].Value);
-                            var query = cc.tipodehoras.Where(w => w.Id_TipodeHora == TdHId).FirstOrDefault();
-                            query.tipodehora_nom = txt_name.Text.Trim();
-                            cc.SubmitChanges();
+                            var query = ch.Tipos_Horas.Where(w => w.TipoHora_Id == TdHId).FirstOrDefault();
+                            query.TipoHora_Nom = txt_name.Text.Trim();
+                            query.TipoHora_Precio = Convert.ToDecimal(txt_valor.Text.Trim());
+                            ch.SubmitChanges();
                             MessageBox.Show("El tipo de hora ha sido modificado");
                             break;
                         }

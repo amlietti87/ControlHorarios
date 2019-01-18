@@ -12,3 +12,10 @@ C:\Users\andre\source\repos\ControlHorarios\DataBase\obj\Debug\DataBase.csproj.C
 C:\Users\andre\source\repos\ControlHorarios\DataBase\obj\Debug\DataBase.dll
 C:\Users\andre\source\repos\ControlHorarios\DataBase\obj\Debug\DataBase.pdb
 C:\Users\andre\source\repos\ControlHorarios\DataBase\obj\Debug\DataBase.csprojResolveAssemblyReference.cache
+C:\Andres\ControlHorarios\DataBase\obj\Debug\DataBase.csproj.CoreCompileInputs.cache
+C:\Andres\ControlHorarios\DataBase\bin\Debug\DataBase.dll.config
+C:\Andres\ControlHorarios\DataBase\bin\Debug\DataBase.dll
+C:\Andres\ControlHorarios\DataBase\bin\Debug\DataBase.pdb
+C:\Andres\ControlHorarios\DataBase\obj\Debug\DataBase.csprojAssemblyReference.cache
+C:\Andres\ControlHorarios\DataBase\obj\Debug\DataBase.dll
+C:\Andres\ControlHorarios\DataBase\obj\Debug\DataBase.pdb
