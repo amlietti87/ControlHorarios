@@ -121,7 +121,9 @@
     <EmbeddedResource Include="TipodeHora.resx">
       <DependentUpon>TipodeHora.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DataBase.ListarObrasSocialesResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarPacientesResult.datasource" />
+    <None Include="Properties\DataSources\DataBase.ListarProfesionesResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarTerapeutasResult.datasource" />
     <None Include="Properties\DataSources\DataBase.obrasocial.datasource" />
     <None Include="Properties\DataSources\DataBase.profesion.datasource" />

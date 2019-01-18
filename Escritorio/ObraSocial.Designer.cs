@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.obrasocialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_upda = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
@@ -39,22 +38,17 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.grp_Listado = new System.Windows.Forms.GroupBox();
             this.dgv_ObraSocial = new System.Windows.Forms.DataGridView();
-            this.obrasocialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.grp_Datos = new System.Windows.Forms.GroupBox();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idObraSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obrasocialnomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource)).BeginInit();
+            this.listarObrasSocialesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grp_Listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ObraSocial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource1)).BeginInit();
             this.grp_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarObrasSocialesResultBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // obrasocialBindingSource
-            // 
-            this.obrasocialBindingSource.DataSource = typeof(DataBase.obrasocial);
             // 
             // btn_new
             // 
@@ -151,9 +145,9 @@
             this.dgv_ObraSocial.AutoGenerateColumns = false;
             this.dgv_ObraSocial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ObraSocial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idObraSocialDataGridViewTextBoxColumn,
-            this.obrasocialnomDataGridViewTextBoxColumn});
-            this.dgv_ObraSocial.DataSource = this.obrasocialBindingSource1;
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn});
+            this.dgv_ObraSocial.DataSource = this.listarObrasSocialesResultBindingSource;
             this.dgv_ObraSocial.Location = new System.Drawing.Point(46, 32);
             this.dgv_ObraSocial.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_ObraSocial.Name = "dgv_ObraSocial";
@@ -161,10 +155,6 @@
             this.dgv_ObraSocial.Size = new System.Drawing.Size(245, 154);
             this.dgv_ObraSocial.TabIndex = 4;
             this.dgv_ObraSocial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ObraSocial_CellClick_1);
-            // 
-            // obrasocialBindingSource1
-            // 
-            this.obrasocialBindingSource1.DataSource = typeof(DataBase.obrasocial);
             // 
             // grp_Datos
             // 
@@ -185,18 +175,23 @@
             // 
             this.Validaciones.ContainerControl = this;
             // 
-            // idObraSocialDataGridViewTextBoxColumn
+            // listarObrasSocialesResultBindingSource
             // 
-            this.idObraSocialDataGridViewTextBoxColumn.DataPropertyName = "Id_ObraSocial";
-            this.idObraSocialDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idObraSocialDataGridViewTextBoxColumn.Name = "idObraSocialDataGridViewTextBoxColumn";
+            this.listarObrasSocialesResultBindingSource.DataSource = typeof(DataBase.ListarObrasSocialesResult);
             // 
-            // obrasocialnomDataGridViewTextBoxColumn
+            // idDataGridViewTextBoxColumn
             // 
-            this.obrasocialnomDataGridViewTextBoxColumn.DataPropertyName = "obrasocial_nom";
-            this.obrasocialnomDataGridViewTextBoxColumn.HeaderText = "Obra Social";
-            this.obrasocialnomDataGridViewTextBoxColumn.MaxInputLength = 50;
-            this.obrasocialnomDataGridViewTextBoxColumn.Name = "obrasocialnomDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.Width = 200;
             // 
             // ObraSocial
             // 
@@ -208,19 +203,17 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ObraSocial";
             this.Text = "Obras Sociales";
-            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource)).EndInit();
             this.grp_Listado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ObraSocial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obrasocialBindingSource1)).EndInit();
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarObrasSocialesResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource obrasocialBindingSource;
         private System.Windows.Forms.Button btn_new;
         private System.Windows.Forms.Button btn_upda;
         private System.Windows.Forms.Button btn_del;
@@ -232,9 +225,11 @@
         private System.Windows.Forms.GroupBox grp_Datos;
         private System.Windows.Forms.ErrorProvider Validaciones;
         private System.Windows.Forms.DataGridView dgv_ObraSocial;
-        private System.Windows.Forms.BindingSource obrasocialBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idObraSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn obrasocialnomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource listarObrasSocialesResultBindingSource;
     }
 }
 

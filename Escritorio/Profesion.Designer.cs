@@ -40,16 +40,15 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Validacion = new System.Windows.Forms.ErrorProvider(this.components);
-            this.profesionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profesionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.idProfesionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listarProfesionesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profesion_nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Profesion)).BeginInit();
             this.grp_Listado.SuspendLayout();
             this.grp_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesionBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarProfesionesResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_Profesion
@@ -57,9 +56,10 @@
             this.dgv_Profesion.AutoGenerateColumns = false;
             this.dgv_Profesion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Profesion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProfesionDataGridViewTextBoxColumn,
-            this.profesion_nom});
-            this.dgv_Profesion.DataSource = this.profesionBindingSource1;
+            this.profesion_nom,
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn});
+            this.dgv_Profesion.DataSource = this.listarProfesionesResultBindingSource;
             this.dgv_Profesion.Location = new System.Drawing.Point(46, 32);
             this.dgv_Profesion.Name = "dgv_Profesion";
             this.dgv_Profesion.Size = new System.Drawing.Size(244, 150);
@@ -163,19 +163,9 @@
             // 
             this.Validacion.ContainerControl = this;
             // 
-            // profesionBindingSource
+            // listarProfesionesResultBindingSource
             // 
-            this.profesionBindingSource.DataSource = typeof(DataBase.profesion);
-            // 
-            // profesionBindingSource1
-            // 
-            this.profesionBindingSource1.DataSource = typeof(DataBase.profesion);
-            // 
-            // idProfesionDataGridViewTextBoxColumn
-            // 
-            this.idProfesionDataGridViewTextBoxColumn.DataPropertyName = "Id_Profesion";
-            this.idProfesionDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idProfesionDataGridViewTextBoxColumn.Name = "idProfesionDataGridViewTextBoxColumn";
+            this.listarProfesionesResultBindingSource.DataSource = typeof(DataBase.ListarProfesionesResult);
             // 
             // profesion_nom
             // 
@@ -183,6 +173,21 @@
             this.profesion_nom.HeaderText = "Profesion";
             this.profesion_nom.MaxInputLength = 30;
             this.profesion_nom.Name = "profesion_nom";
+            this.profesion_nom.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre Profesion";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.Width = 200;
             // 
             // Profesion
             // 
@@ -198,8 +203,7 @@
             this.grp_datos.ResumeLayout(false);
             this.grp_datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesionBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarProfesionesResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,7 +211,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_Profesion;
-        private System.Windows.Forms.BindingSource profesionBindingSource;
         private System.Windows.Forms.GroupBox grp_Listado;
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Button btn_updte;
@@ -220,6 +223,8 @@
         private System.Windows.Forms.ErrorProvider Validacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProfesionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn profesion_nom;
-        private System.Windows.Forms.BindingSource profesionBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource listarProfesionesResultBindingSource;
     }
 }

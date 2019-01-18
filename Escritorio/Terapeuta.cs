@@ -14,7 +14,7 @@ namespace Escritorio
     public partial class Terapeuta : Form
     {
         String Operacion;
-        private DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+        private DataBase.BDHorariosDataContext ch = new DataBase.BDHorariosDataContext();
         public Terapeuta()
         {
             InitializeComponent();
@@ -28,8 +28,8 @@ namespace Escritorio
         {
             // Sentencia para completar combobox de profesion.
             var Profesiones =
-                from c in cc.profesions
-                select new { ProfId = c.Id_Profesion, ProfNom = c.profesion_nom };
+                from c in ch.Profesiones
+                select new { ProfId = c.Profesion_Id, ProfNom = c.Profesion_Nom };
 
             cmb_prof.DataSource = Profesiones.ToList();
             cmb_prof.DisplayMember = "ProfNom";
@@ -39,8 +39,7 @@ namespace Escritorio
 
         void ListarTerapeutas()
         {
-            //DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_Ter.DataSource = cc.ListarTerapeutas();
+            dgv_Ter.DataSource = ch.ListarTerapeutas();
         }
 
         void LimpiarCampos()
@@ -185,10 +184,10 @@ namespace Escritorio
             {
                 try
                 {
-                    DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+                    
                     int TerId = Convert.ToInt32(dgv_Ter.CurrentRow.Cells[0].Value);
-                    DataBase.terapeuta TerDelete = cc.terapeutas.Single(w => w.Id_terapeuta == TerId);
-                    cc.terapeutas.DeleteOnSubmit(TerDelete);
+                    DataBase.Terapeuta TerDelete = ch.Terapeutas.Single(w => w.Terapeuta_Id == TerId);
+                    ch.Terapeutas.DeleteOnSubmit(TerDelete);
                     MessageBox.Show("El terapeuta seleccionada ha sido eliminada correctamente");
                     this.Terapeuta_Load();
 
@@ -205,7 +204,7 @@ namespace Escritorio
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             Validaciones.Clear();
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+            
 
             if (ValidarCampos())
             {
@@ -214,20 +213,20 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.terapeuta newTer = new DataBase.terapeuta
+                            DataBase.Terapeuta newTer = new DataBase.Terapeuta
                             {
-                                terapeuta_nom = txt_name.Text.Trim(),
-                                terapeuta_ape = txt_ape.Text.Trim(),
-                                terapeuta_doc = txt_doc.Text.Trim(),
-                                terapeuta_dom = txt_dom.Text.Trim(),
-                                terapeuta_mail = txt_mail.Text.Trim(),
-                                terapeuta_matricula = txt_mat.Text.Trim(),
-                                terapeuta_tel = txt_tel.Text.Trim(),
-                                terapeuta_idprofesion = (Int32)cmb_prof.SelectedValue
+                                Terapeuta_Nom = txt_name.Text.Trim(),
+                                Terapeuta_Ape = txt_ape.Text.Trim(),
+                                Terapeuta_Doc = txt_doc.Text.Trim(),
+                                Terapeuta_Dom = txt_dom.Text.Trim(),
+                                Terapeuta_Mail = txt_mail.Text.Trim(),
+                                Terapeuta_Mat = txt_mat.Text.Trim(),
+                                Terapeuta_Tel = txt_tel.Text.Trim(),
+                                Terapeuta_Prof = (Int32)cmb_prof.SelectedValue
 
                             };
-                            cc.terapeutas.InsertOnSubmit(newTer);
-                            cc.SubmitChanges();
+                            ch.Terapeutas.InsertOnSubmit(newTer);
+                            ch.SubmitChanges();
                             MessageBox.Show("Se ha cargado un nuevo terapeuta");
                             break;
                         }
@@ -242,16 +241,16 @@ namespace Escritorio
                         try
                         {
                             int TerId = Convert.ToInt32(dgv_Ter.CurrentRow.Cells[0].Value);
-                            DataBase.terapeuta terapeuta = cc.terapeutas.Where(w => w.Id_terapeuta == TerId).FirstOrDefault();
-                            terapeuta.terapeuta_nom = txt_name.Text.Trim();
-                            terapeuta.terapeuta_ape = txt_ape.Text.Trim();
-                            terapeuta.terapeuta_doc = txt_doc.Text.Trim();
-                            terapeuta.terapeuta_dom = txt_dom.Text.Trim();
-                            terapeuta.terapeuta_mail = txt_mail.Text.Trim();
-                            terapeuta.terapeuta_matricula = txt_mat.Text.Trim();
-                            terapeuta.terapeuta_tel = txt_tel.Text.Trim();
-                            terapeuta.terapeuta_idprofesion = (Int32)cmb_prof.SelectedValue;
-                            cc.SubmitChanges();
+                            DataBase.Terapeuta terapeuta = ch.Terapeutas.Where(w => w.Terapeuta_Id == TerId).FirstOrDefault();
+                            terapeuta.Terapeuta_Nom = txt_name.Text.Trim();
+                            terapeuta.Terapeuta_Ape = txt_ape.Text.Trim();
+                            terapeuta.Terapeuta_Doc = txt_doc.Text.Trim();
+                            terapeuta.Terapeuta_Dom = txt_dom.Text.Trim();
+                            terapeuta.Terapeuta_Mail = txt_mail.Text.Trim();
+                            terapeuta.Terapeuta_Mat = txt_mat.Text.Trim();
+                            terapeuta.Terapeuta_Tel = txt_tel.Text.Trim();
+                            terapeuta.Terapeuta_Prof = (Int32)cmb_prof.SelectedValue;
+                            ch.SubmitChanges();
                             MessageBox.Show("El terapeuta ha sido modificado");
                             break;
                         }

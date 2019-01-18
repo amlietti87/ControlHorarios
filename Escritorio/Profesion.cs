@@ -13,6 +13,7 @@ namespace Escritorio
 {
     public partial class Profesion : Form
     {
+        private DataBase.BDHorariosDataContext ch = new DataBase.BDHorariosDataContext();
         String Operacion;
         public Profesion()
         {
@@ -22,8 +23,8 @@ namespace Escritorio
 
         void ListarProfesiones()
         {
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_Profesion.DataSource = cc.profesions;
+            
+            dgv_Profesion.DataSource = ch.ListarProfesiones();
         }
 
         void LimpiarCampo()
@@ -94,10 +95,10 @@ namespace Escritorio
             {
                 try
                 {
-                    DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+                    
                     int ProId = Convert.ToInt32(dgv_Profesion.CurrentRow.Cells[0].Value);
-                    DataBase.profesion ProDelete = cc.profesions.Single(w => w.Id_Profesion == ProId);
-                    cc.profesions.DeleteOnSubmit(ProDelete);
+                    DataBase.Profesione ProDelete = ch.Profesiones.Single(w => w.Profesion_Id == ProId);
+                    ch.Profesiones.DeleteOnSubmit(ProDelete);
                     MessageBox.Show("La profesion seleccionada ha sido eliminada correctamente");
                     this.Profesion_Load();
 
@@ -114,8 +115,7 @@ namespace Escritorio
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             Validacion.Clear();
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-
+    
             if (ValidarNombre())
             {
                 switch (Operacion)
@@ -123,10 +123,10 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.profesion newPro = new DataBase.profesion();
-                            newPro.profesion_nom = txt_name.Text.Trim();
-                            cc.profesions.InsertOnSubmit(newPro);
-                            cc.SubmitChanges();
+                            DataBase.Profesione newPro = new DataBase.Profesione();
+                            newPro.Profesion_Nom = txt_name.Text.Trim();
+                            ch.Profesiones.InsertOnSubmit(newPro);
+                            ch.SubmitChanges();
                             MessageBox.Show("Nueva profesion cargada");
                             break;
                         }
@@ -141,9 +141,9 @@ namespace Escritorio
                         try
                         {
                             int ProId = Convert.ToInt32(dgv_Profesion.CurrentRow.Cells[0].Value);
-                            var query = cc.profesions.Where(w => w.Id_Profesion == ProId).FirstOrDefault();
-                            query.profesion_nom = txt_name.Text.Trim();
-                            cc.SubmitChanges();
+                            var query = ch.Profesiones.Where(w => w.Profesion_Id == ProId).FirstOrDefault();
+                            query.Profesion_Nom = txt_name.Text.Trim();
+                            ch.SubmitChanges();
                             MessageBox.Show("La profesion ha sido modificada");
                             break;
                         }

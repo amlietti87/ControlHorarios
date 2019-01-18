@@ -13,6 +13,7 @@ namespace Escritorio
 {
     public partial class ObraSocial : Form
     {
+        private DataBase.BDHorariosDataContext ch = new DataBase.BDHorariosDataContext();
         string Operacion;
         public ObraSocial()
         {
@@ -22,8 +23,8 @@ namespace Escritorio
 
         void ListarObrasSociales()
         {
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
-            dgv_ObraSocial.DataSource = cc.obrasocials;
+            
+            dgv_ObraSocial.DataSource = ch.ListarObrasSociales();
         }
 
         void LimpiarCampos()
@@ -95,10 +96,10 @@ namespace Escritorio
             {
                 try
                 {
-                    DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+                    
                     int OSId = Convert.ToInt32(dgv_ObraSocial.CurrentRow.Cells[0].Value);
-                    DataBase.obrasocial OSDelete = cc.obrasocials.Single(w => w.Id_ObraSocial == OSId);
-                    cc.obrasocials.DeleteOnSubmit(OSDelete);
+                    DataBase.Obras_Sociale OSDelete = ch.Obras_Sociales.Single(w => w.ObSoc_Id == OSId);
+                    ch.Obras_Sociales.DeleteOnSubmit(OSDelete);
                     MessageBox.Show("La obra social seleccionada ha sido eliminada correctamente");
                     this.ObraSocial_Load();
                 
@@ -115,7 +116,7 @@ namespace Escritorio
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             Validaciones.Clear();
-            DataBase.DataClasses1DataContext cc = new DataBase.DataClasses1DataContext();
+            
 
             if (ValidarNombre())
             {
@@ -124,10 +125,10 @@ namespace Escritorio
                     case "agregar":
                         try
                         {
-                            DataBase.obrasocial newOS = new DataBase.obrasocial();
-                            newOS.obrasocial_nom = txt_name.Text.Trim();
-                            cc.obrasocials.InsertOnSubmit(newOS);
-                            cc.SubmitChanges();
+                            DataBase.Obras_Sociale newOS = new DataBase.Obras_Sociale();
+                            newOS.ObSoc_Nom = txt_name.Text.Trim();
+                            ch.Obras_Sociales.InsertOnSubmit(newOS);
+                            ch.SubmitChanges();
                             MessageBox.Show("Nueva Obra Social cargada");
                             break;
                         }
@@ -142,9 +143,9 @@ namespace Escritorio
                         try
                         {
                             int OSId = Convert.ToInt32(dgv_ObraSocial.CurrentRow.Cells[0].Value);
-                            var query = cc.obrasocials.Where(w => w.Id_ObraSocial == OSId).FirstOrDefault();
-                            query.obrasocial_nom = txt_name.Text.Trim();
-                            cc.SubmitChanges();
+                            var query = ch.Obras_Sociales.Where(w => w.ObSoc_Id == OSId).FirstOrDefault();
+                            query.ObSoc_Nom = txt_name.Text.Trim();
+                            ch.SubmitChanges();
                             MessageBox.Show("La Obra Social ha sido modificada");
                             break;
                         }
