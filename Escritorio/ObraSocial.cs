@@ -176,5 +176,10 @@ namespace Escritorio
         {
             txt_name.Text = dgv_ObraSocial.CurrentRow.Cells[1].Value.ToString().Trim();
         }
+
+        public void LoadOS()
+        {
+            this.ObraSocial_Load();
+        }
     }
 }

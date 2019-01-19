@@ -280,5 +280,10 @@ namespace Escritorio
             txt_tel.Text = dgv_Pac.CurrentRow.Cells[5].Value.ToString().Trim();
             txt_doc.Text = dgv_Pac.CurrentRow.Cells[3].Value.ToString().Trim();
         }
+
+        public void LoadPaciente()
+        {
+            this.Pacientes_Load();
+        }
     }
 }

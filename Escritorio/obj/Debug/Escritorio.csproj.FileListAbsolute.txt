@@ -75,3 +75,4 @@ C:\Andres\ControlHorarios\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
 C:\Andres\ControlHorarios\Escritorio\obj\Debug\Escritorio.exe
 C:\Andres\ControlHorarios\Escritorio\obj\Debug\Escritorio.pdb
 C:\Andres\ControlHorarios\Escritorio\obj\Debug\Escritorio.Main.resources
+C:\Andres\ControlHorarios\Escritorio\obj\Debug\Escritorio.HrsTrabajadas.resources

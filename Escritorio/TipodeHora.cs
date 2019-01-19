@@ -27,14 +27,16 @@ namespace Escritorio
             dgv_TdH.DataSource = ch.ListarTiposHoras();
         }
 
-        void LimpiarCampo()
+        void LimpiarCampos()
         {
             txt_name.Text = "";
+            txt_valor.Text = "";
         }
 
         void TipodeHora_Load()
         {
             this.ListarTiposdeHoras();
+            this.LimpiarCampos();
             grp_Datos.Enabled = false;
             grp_Listados.Enabled = true;
             dgv_TdH.AllowUserToAddRows = false;
@@ -55,6 +57,17 @@ namespace Escritorio
                 Validacion.SetError(txt_name, "El tipo de hora solo debe contener letras");
             }
 
+            if (txt_valor.Text.Trim() == "")
+            {
+                val = false;
+                Validacion.SetError(txt_valor, "Debe ingresar el valor para el tipo de hora.");
+            }
+            else if (!TextValidator.ValidarFloat(txt_valor.Text))
+            {
+                val = false;
+                Validacion.SetError(txt_valor, "El valor de la hora debe contener solo numeros");
+            }
+
             return val;
         }
 
@@ -63,7 +76,7 @@ namespace Escritorio
             Validacion.Clear();
             grp_Listados.Enabled = false;
             grp_Datos.Enabled = true;
-            LimpiarCampo();
+            LimpiarCampos();
             Operacion = "agregar";
         }
 
@@ -172,6 +185,11 @@ namespace Escritorio
         private void dgv_TdH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_name.Text = dgv_TdH.CurrentRow.Cells[1].Value.ToString().Trim();
+        }
+
+        public void LoadTipoDeHora()
+        {
+            this.TipodeHora_Load();
         }
     }
 }

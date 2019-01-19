@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HrsTrabajadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HrsTrabajadas.Designer.cs">
+      <DependentUpon>HrsTrabajadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="TipodeHora.Designer.cs">
       <DependentUpon>TipodeHora.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HrsTrabajadas.resx">
+      <DependentUpon>HrsTrabajadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +139,7 @@
     <EmbeddedResource Include="TipodeHora.resx">
       <DependentUpon>TipodeHora.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DataBase.ListarHorasTrabajadasResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarObrasSocialesResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarPacientesResult.datasource" />
     <None Include="Properties\DataSources\DataBase.ListarProfesionesResult.datasource" />
