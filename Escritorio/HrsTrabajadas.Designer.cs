@@ -154,7 +154,7 @@
             // 
             // btn_del
             // 
-            this.btn_del.Location = new System.Drawing.Point(477, 262);
+            this.btn_del.Location = new System.Drawing.Point(465, 262);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(80, 30);
             this.btn_del.TabIndex = 5;
@@ -164,7 +164,7 @@
             // 
             // btn_chrg
             // 
-            this.btn_chrg.Location = new System.Drawing.Point(357, 262);
+            this.btn_chrg.Location = new System.Drawing.Point(345, 262);
             this.btn_chrg.Name = "btn_chrg";
             this.btn_chrg.Size = new System.Drawing.Size(80, 30);
             this.btn_chrg.TabIndex = 4;
@@ -174,7 +174,7 @@
             // 
             // btn_new
             // 
-            this.btn_new.Location = new System.Drawing.Point(232, 262);
+            this.btn_new.Location = new System.Drawing.Point(220, 262);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(80, 30);
             this.btn_new.TabIndex = 3;
