@@ -71,10 +71,19 @@ namespace Escritorio
         private void cargarYCobrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HrsTrabajadas hrsTrabajadas = Application.OpenForms.OfType<HrsTrabajadas>().FirstOrDefault() ?? new HrsTrabajadas();
-            hrsTrabajadas.Width = 805;
-            hrsTrabajadas.Height = 670;
+            hrsTrabajadas.Width = 820;
+            hrsTrabajadas.Height = 705;
             hrsTrabajadas.LoadHoras();
             AddFormInPanel(hrsTrabajadas);
+        }
+
+        private void cobradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HorasCobradas horasCobradas = Application.OpenForms.OfType<HorasCobradas>().FirstOrDefault() ?? new HorasCobradas();
+            horasCobradas.Width = 840;
+            horasCobradas.Height = 610;
+            horasCobradas.LoadHoras();
+            AddFormInPanel(horasCobradas);
         }
     }
 }

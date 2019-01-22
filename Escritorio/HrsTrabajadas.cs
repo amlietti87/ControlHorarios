@@ -224,27 +224,27 @@ namespace Escritorio
 
         private void btn_export_Click(object sender, EventArgs e)
         {
-        //    TablaReporte Tr = new TablaReporte();
-        //    string Titulo = "Detalle de pagos adeudados del mes de " + cmb_month.SelectedValue.ToString() + " de " + cmb_year.SelectedValue.ToString();
-        //    string Total = txt_deuda.Text;
+            Informes.TablaReporte Tr = new Informes.TablaReporte();
+            string Titulo = "Detalle de pagos adeudados del mes de " + cmb_month.SelectedValue.ToString() + " de " + cmb_year.SelectedValue.ToString();
+            string Total = "Total deuda $" + txt_deuda.Text;
 
-        //    foreach (DataGridViewRow row in dgv_Horas.Rows)
-        //    {
-        //        TablaReporte.DataTable1Row rowdeuda = Tr.DataTable1.NewDataTable1Row();
-        //        rowdeuda.Apellido_Paciente = Convert.ToString(row.Cells[3].Value);
-        //        rowdeuda.Nombre_Paciente = Convert.ToString(row.Cells[4].Value);
-        //        rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[5].Value);
-        //        rowdeuda.Lugar = Convert.ToString(row.Cells[6].Value);
-        //        rowdeuda.Mes = Convert.ToString(row.Cells[7].Value);
-        //        rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[8].Value);
-        //        rowdeuda._Total_en__ = Convert.ToString(row.Cells[9].Value);
+            foreach (DataGridViewRow row in dgv_Horas.Rows)
+            {
+                Informes.TablaReporte.DataTable1Row rowdeuda = Tr.DataTable1.NewDataTable1Row();
+                rowdeuda.Apellido = Convert.ToString(row.Cells[3].Value);
+                rowdeuda.Nombre = Convert.ToString(row.Cells[4].Value);
+                rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[5].Value);
+                rowdeuda.Lugar = Convert.ToString(row.Cells[6].Value);
+                rowdeuda.Fecha = Convert.ToString(row.Cells[7].Value);
+                rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[8].Value);
+                rowdeuda.Total = Convert.ToString(row.Cells[9].Value);
 
-        //        Tr.DataTable1.AddDataTable1Row(rowdeuda);
+                Tr.DataTable1.AddDataTable1Row(rowdeuda);
 
-        //    }
+            }
 
-        //    Informes.Informes frm = new Informes.Informes(Tr, Titulo, Total);
-        //    frm.Show();
+            Informes.Informes frm = new Informes.Informes(Tr, Titulo, Total);
+            frm.Show();
         }
 
         private void txt_place_KeyPress(object sender, KeyPressEventArgs e)

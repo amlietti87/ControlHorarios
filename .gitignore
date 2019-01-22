@@ -204,8 +204,8 @@ $RECYCLE.BIN/
 *.feature.xlsx.*
 *.Specs_*.html
 
-Escritorio/bin/
-Escritorio/obj/
+Escritorio/bin
+Escritorio/obj
 
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)

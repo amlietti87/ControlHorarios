@@ -96,6 +96,7 @@
             this.cobradasToolStripMenuItem.Name = "cobradasToolStripMenuItem";
             this.cobradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cobradasToolStripMenuItem.Text = "Cobradas";
+            this.cobradasToolStripMenuItem.Click += new System.EventHandler(this.cobradasToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 

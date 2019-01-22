@@ -42,18 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_deuda = new System.Windows.Forms.TextBox();
             this.dgv_Horas = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacienteApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrePacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lugarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cobradaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.listarHorasTrabajadasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_Datos = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
@@ -68,12 +56,24 @@
             this.cmb_Pac = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrePacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lugarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cobradaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.listarHorasTrabajadasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_mes.SuspendLayout();
             this.grp_Horas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Horas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listarHorasTrabajadasResultBindingSource)).BeginInit();
             this.grp_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarHorasTrabajadasResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_mes
@@ -81,9 +81,9 @@
             this.grp_mes.Controls.Add(this.cmb_year);
             this.grp_mes.Controls.Add(this.cmb_month);
             this.grp_mes.Controls.Add(this.label1);
-            this.grp_mes.Location = new System.Drawing.Point(12, 4);
+            this.grp_mes.Location = new System.Drawing.Point(12, -1);
             this.grp_mes.Name = "grp_mes";
-            this.grp_mes.Size = new System.Drawing.Size(763, 68);
+            this.grp_mes.Size = new System.Drawing.Size(763, 61);
             this.grp_mes.TabIndex = 0;
             this.grp_mes.TabStop = false;
             this.grp_mes.Text = "Seleccion Fecha";
@@ -91,7 +91,7 @@
             // cmb_year
             // 
             this.cmb_year.FormattingEnabled = true;
-            this.cmb_year.Location = new System.Drawing.Point(477, 27);
+            this.cmb_year.Location = new System.Drawing.Point(477, 23);
             this.cmb_year.Name = "cmb_year";
             this.cmb_year.Size = new System.Drawing.Size(121, 21);
             this.cmb_year.TabIndex = 2;
@@ -100,7 +100,7 @@
             // cmb_month
             // 
             this.cmb_month.FormattingEnabled = true;
-            this.cmb_month.Location = new System.Drawing.Point(338, 27);
+            this.cmb_month.Location = new System.Drawing.Point(338, 23);
             this.cmb_month.Name = "cmb_month";
             this.cmb_month.Size = new System.Drawing.Size(121, 21);
             this.cmb_month.TabIndex = 1;
@@ -109,7 +109,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 30);
+            this.label1.Location = new System.Drawing.Point(216, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 0;
@@ -125,16 +125,16 @@
             this.grp_Horas.Controls.Add(this.label2);
             this.grp_Horas.Controls.Add(this.txt_deuda);
             this.grp_Horas.Controls.Add(this.dgv_Horas);
-            this.grp_Horas.Location = new System.Drawing.Point(12, 78);
+            this.grp_Horas.Location = new System.Drawing.Point(12, 61);
             this.grp_Horas.Name = "grp_Horas";
-            this.grp_Horas.Size = new System.Drawing.Size(763, 307);
+            this.grp_Horas.Size = new System.Drawing.Size(763, 363);
             this.grp_Horas.TabIndex = 1;
             this.grp_Horas.TabStop = false;
             this.grp_Horas.Text = "Horas Trabajadas";
             // 
             // btn_export
             // 
-            this.btn_export.Location = new System.Drawing.Point(650, 278);
+            this.btn_export.Location = new System.Drawing.Point(650, 330);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(100, 23);
             this.btn_export.TabIndex = 7;
@@ -144,7 +144,7 @@
             // 
             // btn_chgm
             // 
-            this.btn_chgm.Location = new System.Drawing.Point(650, 247);
+            this.btn_chgm.Location = new System.Drawing.Point(650, 299);
             this.btn_chgm.Name = "btn_chgm";
             this.btn_chgm.Size = new System.Drawing.Size(100, 23);
             this.btn_chgm.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             // btn_del
             // 
-            this.btn_del.Location = new System.Drawing.Point(465, 262);
+            this.btn_del.Location = new System.Drawing.Point(465, 323);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(80, 30);
             this.btn_del.TabIndex = 5;
@@ -164,7 +164,7 @@
             // 
             // btn_chrg
             // 
-            this.btn_chrg.Location = new System.Drawing.Point(345, 262);
+            this.btn_chrg.Location = new System.Drawing.Point(338, 323);
             this.btn_chrg.Name = "btn_chrg";
             this.btn_chrg.Size = new System.Drawing.Size(80, 30);
             this.btn_chrg.TabIndex = 4;
@@ -174,7 +174,7 @@
             // 
             // btn_new
             // 
-            this.btn_new.Location = new System.Drawing.Point(220, 262);
+            this.btn_new.Location = new System.Drawing.Point(219, 323);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(80, 30);
             this.btn_new.TabIndex = 3;
@@ -185,7 +185,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(552, 207);
+            this.label2.Location = new System.Drawing.Point(552, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 2;
@@ -193,7 +193,7 @@
             // 
             // txt_deuda
             // 
-            this.txt_deuda.Location = new System.Drawing.Point(650, 204);
+            this.txt_deuda.Location = new System.Drawing.Point(650, 256);
             this.txt_deuda.Name = "txt_deuda";
             this.txt_deuda.Size = new System.Drawing.Size(100, 20);
             this.txt_deuda.TabIndex = 1;
@@ -217,82 +217,8 @@
             this.dgv_Horas.DataSource = this.listarHorasTrabajadasResultBindingSource;
             this.dgv_Horas.Location = new System.Drawing.Point(7, 20);
             this.dgv_Horas.Name = "dgv_Horas";
-            this.dgv_Horas.Size = new System.Drawing.Size(744, 150);
+            this.dgv_Horas.Size = new System.Drawing.Size(744, 225);
             this.dgv_Horas.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // apellidoTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.HeaderText = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Name = "apellidoTerapeutaDataGridViewTextBoxColumn";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.nombreTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.HeaderText = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Name = "nombreTerapeutaDataGridViewTextBoxColumn";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pacienteApellidoDataGridViewTextBoxColumn
-            // 
-            this.pacienteApellidoDataGridViewTextBoxColumn.DataPropertyName = "PacienteApellido";
-            this.pacienteApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.pacienteApellidoDataGridViewTextBoxColumn.Name = "pacienteApellidoDataGridViewTextBoxColumn";
-            // 
-            // nombrePacienteDataGridViewTextBoxColumn
-            // 
-            this.nombrePacienteDataGridViewTextBoxColumn.DataPropertyName = "NombrePaciente";
-            this.nombrePacienteDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombrePacienteDataGridViewTextBoxColumn.Name = "nombrePacienteDataGridViewTextBoxColumn";
-            // 
-            // tipoHoraDataGridViewTextBoxColumn
-            // 
-            this.tipoHoraDataGridViewTextBoxColumn.DataPropertyName = "TipoHora";
-            this.tipoHoraDataGridViewTextBoxColumn.HeaderText = "TipoHora";
-            this.tipoHoraDataGridViewTextBoxColumn.Name = "tipoHoraDataGridViewTextBoxColumn";
-            // 
-            // lugarDataGridViewTextBoxColumn
-            // 
-            this.lugarDataGridViewTextBoxColumn.DataPropertyName = "Lugar";
-            this.lugarDataGridViewTextBoxColumn.HeaderText = "Lugar";
-            this.lugarDataGridViewTextBoxColumn.Name = "lugarDataGridViewTextBoxColumn";
-            // 
-            // mesDataGridViewTextBoxColumn
-            // 
-            this.mesDataGridViewTextBoxColumn.DataPropertyName = "Mes";
-            this.mesDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.mesDataGridViewTextBoxColumn.Name = "mesDataGridViewTextBoxColumn";
-            // 
-            // horasDataGridViewTextBoxColumn
-            // 
-            this.horasDataGridViewTextBoxColumn.DataPropertyName = "Horas";
-            this.horasDataGridViewTextBoxColumn.HeaderText = "Cant. Horas";
-            this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total a Cobrar";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            // 
-            // cobradaDataGridViewCheckBoxColumn
-            // 
-            this.cobradaDataGridViewCheckBoxColumn.DataPropertyName = "Cobrada";
-            this.cobradaDataGridViewCheckBoxColumn.HeaderText = "Cobrada";
-            this.cobradaDataGridViewCheckBoxColumn.Name = "cobradaDataGridViewCheckBoxColumn";
-            this.cobradaDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // listarHorasTrabajadasResultBindingSource
-            // 
-            this.listarHorasTrabajadasResultBindingSource.DataSource = typeof(DataBase.ListarHorasTrabajadasResult);
             // 
             // grp_Datos
             // 
@@ -308,7 +234,7 @@
             this.grp_Datos.Controls.Add(this.label4);
             this.grp_Datos.Controls.Add(this.cmb_Pac);
             this.grp_Datos.Controls.Add(this.label3);
-            this.grp_Datos.Location = new System.Drawing.Point(12, 392);
+            this.grp_Datos.Location = new System.Drawing.Point(12, 424);
             this.grp_Datos.Name = "grp_Datos";
             this.grp_Datos.Size = new System.Drawing.Size(763, 212);
             this.grp_Datos.TabIndex = 2;
@@ -424,11 +350,85 @@
             // 
             this.Validaciones.ContainerControl = this;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // apellidoTerapeutaDataGridViewTextBoxColumn
+            // 
+            this.apellidoTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "ApellidoTerapeuta";
+            this.apellidoTerapeutaDataGridViewTextBoxColumn.HeaderText = "ApellidoTerapeuta";
+            this.apellidoTerapeutaDataGridViewTextBoxColumn.Name = "apellidoTerapeutaDataGridViewTextBoxColumn";
+            this.apellidoTerapeutaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreTerapeutaDataGridViewTextBoxColumn
+            // 
+            this.nombreTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "NombreTerapeuta";
+            this.nombreTerapeutaDataGridViewTextBoxColumn.HeaderText = "NombreTerapeuta";
+            this.nombreTerapeutaDataGridViewTextBoxColumn.Name = "nombreTerapeutaDataGridViewTextBoxColumn";
+            this.nombreTerapeutaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pacienteApellidoDataGridViewTextBoxColumn
+            // 
+            this.pacienteApellidoDataGridViewTextBoxColumn.DataPropertyName = "PacienteApellido";
+            this.pacienteApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.pacienteApellidoDataGridViewTextBoxColumn.Name = "pacienteApellidoDataGridViewTextBoxColumn";
+            // 
+            // nombrePacienteDataGridViewTextBoxColumn
+            // 
+            this.nombrePacienteDataGridViewTextBoxColumn.DataPropertyName = "NombrePaciente";
+            this.nombrePacienteDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombrePacienteDataGridViewTextBoxColumn.Name = "nombrePacienteDataGridViewTextBoxColumn";
+            // 
+            // tipoHoraDataGridViewTextBoxColumn
+            // 
+            this.tipoHoraDataGridViewTextBoxColumn.DataPropertyName = "TipoHora";
+            this.tipoHoraDataGridViewTextBoxColumn.HeaderText = "TipoHora";
+            this.tipoHoraDataGridViewTextBoxColumn.Name = "tipoHoraDataGridViewTextBoxColumn";
+            // 
+            // lugarDataGridViewTextBoxColumn
+            // 
+            this.lugarDataGridViewTextBoxColumn.DataPropertyName = "Lugar";
+            this.lugarDataGridViewTextBoxColumn.HeaderText = "Lugar";
+            this.lugarDataGridViewTextBoxColumn.Name = "lugarDataGridViewTextBoxColumn";
+            // 
+            // mesDataGridViewTextBoxColumn
+            // 
+            this.mesDataGridViewTextBoxColumn.DataPropertyName = "Mes";
+            this.mesDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.mesDataGridViewTextBoxColumn.Name = "mesDataGridViewTextBoxColumn";
+            // 
+            // horasDataGridViewTextBoxColumn
+            // 
+            this.horasDataGridViewTextBoxColumn.DataPropertyName = "Horas";
+            this.horasDataGridViewTextBoxColumn.HeaderText = "Cant. Horas";
+            this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total a Cobrar";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            // 
+            // cobradaDataGridViewCheckBoxColumn
+            // 
+            this.cobradaDataGridViewCheckBoxColumn.DataPropertyName = "Cobrada";
+            this.cobradaDataGridViewCheckBoxColumn.HeaderText = "Cobrada";
+            this.cobradaDataGridViewCheckBoxColumn.Name = "cobradaDataGridViewCheckBoxColumn";
+            this.cobradaDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // listarHorasTrabajadasResultBindingSource
+            // 
+            this.listarHorasTrabajadasResultBindingSource.DataSource = typeof(DataBase.ListarHorasTrabajadasResult);
+            // 
             // HrsTrabajadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 616);
+            this.ClientSize = new System.Drawing.Size(786, 641);
             this.Controls.Add(this.grp_Datos);
             this.Controls.Add(this.grp_Horas);
             this.Controls.Add(this.grp_mes);
@@ -439,10 +439,10 @@
             this.grp_Horas.ResumeLayout(false);
             this.grp_Horas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Horas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listarHorasTrabajadasResultBindingSource)).EndInit();
             this.grp_Datos.ResumeLayout(false);
             this.grp_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Validaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listarHorasTrabajadasResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
