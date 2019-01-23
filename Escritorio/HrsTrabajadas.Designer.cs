@@ -56,9 +56,8 @@
             this.cmb_Pac = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Validaciones = new System.Windows.Forms.ErrorProvider(this.components);
+            this.listarHorasTrabajadasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombrePacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +66,6 @@
             this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cobradaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.listarHorasTrabajadasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grp_mes.SuspendLayout();
             this.grp_Horas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Horas)).BeginInit();
@@ -204,8 +202,6 @@
             this.dgv_Horas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Horas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.apellidoTerapeutaDataGridViewTextBoxColumn,
-            this.nombreTerapeutaDataGridViewTextBoxColumn,
             this.pacienteApellidoDataGridViewTextBoxColumn,
             this.nombrePacienteDataGridViewTextBoxColumn,
             this.tipoHoraDataGridViewTextBoxColumn,
@@ -350,26 +346,16 @@
             // 
             this.Validaciones.ContainerControl = this;
             // 
+            // listarHorasTrabajadasResultBindingSource
+            // 
+            this.listarHorasTrabajadasResultBindingSource.DataSource = typeof(DataBase.ListarHorasTrabajadasResult);
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // apellidoTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.HeaderText = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Name = "apellidoTerapeutaDataGridViewTextBoxColumn";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.nombreTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.HeaderText = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Name = "nombreTerapeutaDataGridViewTextBoxColumn";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Visible = false;
             // 
             // pacienteApellidoDataGridViewTextBoxColumn
             // 
@@ -404,13 +390,13 @@
             // horasDataGridViewTextBoxColumn
             // 
             this.horasDataGridViewTextBoxColumn.DataPropertyName = "Horas";
-            this.horasDataGridViewTextBoxColumn.HeaderText = "Cant. Horas";
+            this.horasDataGridViewTextBoxColumn.HeaderText = "Total Horas";
             this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
             // 
             // totalDataGridViewTextBoxColumn
             // 
             this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total a Cobrar";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             // 
             // cobradaDataGridViewCheckBoxColumn
@@ -419,10 +405,6 @@
             this.cobradaDataGridViewCheckBoxColumn.HeaderText = "Cobrada";
             this.cobradaDataGridViewCheckBoxColumn.Name = "cobradaDataGridViewCheckBoxColumn";
             this.cobradaDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // listarHorasTrabajadasResultBindingSource
-            // 
-            this.listarHorasTrabajadasResultBindingSource.DataSource = typeof(DataBase.ListarHorasTrabajadasResult);
             // 
             // HrsTrabajadas
             // 
@@ -457,21 +439,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_deuda;
         private System.Windows.Forms.DataGridView dgv_Horas;
-        private System.Windows.Forms.BindingSource listarHorasTrabajadasResultBindingSource;
         private System.Windows.Forms.Button btn_new;
         private System.Windows.Forms.Button btn_chrg;
         private System.Windows.Forms.Button btn_del;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoTerapeutaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreTerapeutaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacienteApellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombrePacienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoHoraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lugarDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cobradaDataGridViewCheckBoxColumn;
         private System.Windows.Forms.GroupBox grp_Datos;
         private System.Windows.Forms.TextBox txt_hrs;
         private System.Windows.Forms.Label label7;
@@ -488,5 +460,15 @@
         private System.Windows.Forms.ErrorProvider Validaciones;
         private System.Windows.Forms.Button btn_chgm;
         private System.Windows.Forms.Button btn_export;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pacienteApellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrePacienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoHoraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lugarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cobradaDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource listarHorasTrabajadasResultBindingSource;
     }
 }

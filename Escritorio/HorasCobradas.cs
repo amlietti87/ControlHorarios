@@ -50,7 +50,7 @@ namespace Escritorio
             cobrado = 0;
             foreach (DataGridViewRow row in dgv_HrsCob.Rows)
             {
-                cobrado += Convert.ToDecimal(row.Cells[9].Value);
+                cobrado += Convert.ToDecimal(row.Cells[7].Value);
             }
 
             return cobrado;
@@ -77,6 +77,8 @@ namespace Escritorio
         private void btn_chgd_Click(object sender, EventArgs e)
         {
             dgv_HrsCob.DataSource = null;
+            this.cmb_month.Enabled = true;
+            this.cmb_year.Enabled = false;
             this.ListarHorasTrabajadas(true, false);
         }
 
@@ -89,13 +91,12 @@ namespace Escritorio
             foreach (DataGridViewRow row in dgv_HrsCob.Rows)
             {
                 Informes.TablaReporte.DataTable1Row rowdeuda = Tr.DataTable1.NewDataTable1Row();
-                rowdeuda.Apellido = Convert.ToString(row.Cells[3].Value);
-                rowdeuda.Nombre = Convert.ToString(row.Cells[4].Value);
-                rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[5].Value);
-                rowdeuda.Lugar = Convert.ToString(row.Cells[6].Value);
-                rowdeuda.Fecha = Convert.ToString(row.Cells[7].Value);
-                rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[8].Value);
-                rowdeuda.Total = Convert.ToString(row.Cells[9].Value);
+                rowdeuda.Paciente = Convert.ToString(row.Cells[1].Value) + ", " + Convert.ToString(row.Cells[2].Value);
+                rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[3].Value);
+                rowdeuda.Lugar = Convert.ToString(row.Cells[4].Value);
+                rowdeuda.Fecha = Convert.ToString(row.Cells[5].Value);
+                rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[6].Value);
+                rowdeuda.Total = Convert.ToString(row.Cells[7].Value);
 
                 Tr.DataTable1.AddDataTable1Row(rowdeuda);
 

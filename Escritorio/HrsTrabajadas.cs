@@ -65,7 +65,7 @@ namespace Escritorio
             deuda = 0;
             foreach (DataGridViewRow row in dgv_Horas.Rows)
             {
-                deuda += Convert.ToDecimal(row.Cells[9].Value);
+                deuda += Convert.ToDecimal(row.Cells[7].Value);
             }
 
             return deuda;
@@ -231,13 +231,12 @@ namespace Escritorio
             foreach (DataGridViewRow row in dgv_Horas.Rows)
             {
                 Informes.TablaReporte.DataTable1Row rowdeuda = Tr.DataTable1.NewDataTable1Row();
-                rowdeuda.Apellido = Convert.ToString(row.Cells[3].Value);
-                rowdeuda.Nombre = Convert.ToString(row.Cells[4].Value);
-                rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[5].Value);
-                rowdeuda.Lugar = Convert.ToString(row.Cells[6].Value);
-                rowdeuda.Fecha = Convert.ToString(row.Cells[7].Value);
-                rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[8].Value);
-                rowdeuda.Total = Convert.ToString(row.Cells[9].Value);
+                rowdeuda.Paciente = Convert.ToString(row.Cells[1].Value) + ", " + Convert.ToString(row.Cells[2].Value);
+                rowdeuda.Tipo_Hora = Convert.ToString(row.Cells[3].Value);
+                rowdeuda.Lugar = Convert.ToString(row.Cells[4].Value);
+                rowdeuda.Fecha = Convert.ToString(row.Cells[5].Value);
+                rowdeuda.Cantidad_de_Horas = Convert.ToString(row.Cells[6].Value);
+                rowdeuda.Total = Convert.ToString(row.Cells[7].Value);
 
                 Tr.DataTable1.AddDataTable1Row(rowdeuda);
 
@@ -278,10 +277,9 @@ namespace Escritorio
                             {
                                 HrTrab_Cant = Convert.ToDecimal(txt_hrs.Text.Trim()),
                                 HrTrab_Lugar = txt_place.Text.Trim(),
-                                
                                 HrTrab_Pac = (Int32)cmb_Pac.SelectedValue,
                                 HrTrab_TipoHr = (Int32)cmb_TiposHrs.SelectedValue,
-                                HrTrab_Mes = cmb_month.SelectedValue.ToString(),
+                                HrTrab_Mes = txt_month.Text.Trim(),
                                 HrTrab_Precio = this.TotalACobrar((Int32)cmb_TiposHrs.SelectedValue, Convert.ToDecimal(txt_hrs.Text.Trim())),
                                 HrTrab_Cob = false
                             };
@@ -297,6 +295,7 @@ namespace Escritorio
                             break;
                         }
                 }
+                MesaCargar = txt_month.Text.Trim();
                 this.HrsTrabajadas_Load(false, true);
             }
         }
@@ -304,6 +303,8 @@ namespace Escritorio
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Validaciones.Clear();
+            this.cmb_month.Enabled = true;
+            this.cmb_year.Enabled = false;
             this.HrsTrabajadas_Load(false, true);
         }
 

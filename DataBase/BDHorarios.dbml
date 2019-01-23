@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ControlHorarios" Class="BDHorariosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CM1LV5L;Initial Catalog=ControlHorarios;Integrated Security=True" SettingsObjectName="DataBase.Properties.Settings" SettingsPropertyName="ControlHorariosConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Horas_Trabajadas" Member="Horas_Trabajadas">
-    <Type Name="Horas_Trabajada">
-      <Column Name="HrTrab_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="HrTrab_Cant" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Ter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Pac" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_TipoHr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HrTrab_Cob" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Paciente_Horas_Trabajada" Member="Paciente" ThisKey="HrTrab_Pac" OtherKey="Paciente_Id" Type="Paciente" IsForeignKey="true" />
-      <Association Name="Tipos_Hora_Horas_Trabajada" Member="Tipos_Hora" ThisKey="HrTrab_TipoHr" OtherKey="TipoHora_Id" Type="Tipos_Hora" IsForeignKey="true" />
-      <Association Name="Terapeuta_Horas_Trabajada" Member="Terapeuta" ThisKey="HrTrab_Ter" OtherKey="Terapeuta_Id" Type="Terapeuta" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Obras_Sociales" Member="Obras_Sociales">
     <Type Name="Obras_Sociale">
       <Column Name="ObSoc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -63,42 +47,23 @@
       <Column Name="Terapeuta_Dom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Terapeuta_Tel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Terapeuta_Prof" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Terapeuta_Horas_Trabajada" Member="Horas_Trabajadas" ThisKey="Terapeuta_Id" OtherKey="HrTrab_Ter" Type="Horas_Trabajada" />
       <Association Name="Profesione_Terapeuta" Member="Profesione" ThisKey="Terapeuta_Prof" OtherKey="Profesion_Id" Type="Profesione" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.ListarHorasTrabajadas" Method="ListarHorasTrabajadas">
-    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(20)" />
-    <ElementType Name="ListarHorasTrabajadasResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ApellidoTerapeuta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NombreTerapeuta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PacienteApellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TipoHora" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Horas" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Cobrada" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.ListarHorasTrabajadasPagas" Method="ListarHorasTrabajadasPagas">
-    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(20)" />
-    <ElementType Name="ListarHorasTrabajadasPagasResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ApellidoTerapeuta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NombreTerapeuta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PacienteApellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TipoHora" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Horas" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Cobrada" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
+  <Table Name="dbo.Horas_Trabajadas" Member="Horas_Trabajadas">
+    <Type Name="Horas_Trabajada">
+      <Column Name="HrTrab_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HrTrab_Cant" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_Precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_Pac" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_TipoHr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HrTrab_Cob" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Paciente_Horas_Trabajada" Member="Paciente" ThisKey="HrTrab_Pac" OtherKey="Paciente_Id" Type="Paciente" IsForeignKey="true" />
+      <Association Name="Tipos_Hora_Horas_Trabajada" Member="Tipos_Hora" ThisKey="HrTrab_TipoHr" OtherKey="TipoHora_Id" Type="Tipos_Hora" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.ListarObrasSociales" Method="ListarObrasSociales">
     <ElementType Name="ListarObrasSocialesResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -141,6 +106,34 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Valor" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ListarHorasTrabajadas" Method="ListarHorasTrabajadas">
+    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="ListarHorasTrabajadasResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PacienteApellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoHora" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Horas" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Cobrada" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ListarHorasTrabajadasPagas" Method="ListarHorasTrabajadasPagas">
+    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="ListarHorasTrabajadasPagasResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PacienteApellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoHora" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mes" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Horas" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Cobrada" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

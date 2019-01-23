@@ -281,13 +281,7 @@ namespace Escritorio.Informes {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnApellido_Terapeuta;
-            
-            private global::System.Data.DataColumn columnNombre_Terapeuta;
-            
-            private global::System.Data.DataColumn columnApellido;
-            
-            private global::System.Data.DataColumn columnNombre;
+            private global::System.Data.DataColumn columnPaciente;
             
             private global::System.Data.DataColumn columnTipo_Hora;
             
@@ -344,33 +338,9 @@ namespace Escritorio.Informes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Apellido_TerapeutaColumn {
+            public global::System.Data.DataColumn PacienteColumn {
                 get {
-                    return this.columnApellido_Terapeuta;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Nombre_TerapeutaColumn {
-                get {
-                    return this.columnNombre_Terapeuta;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ApellidoColumn {
-                get {
-                    return this.columnApellido;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
-                get {
-                    return this.columnNombre;
+                    return this.columnPaciente;
                 }
             }
             
@@ -459,14 +429,11 @@ namespace Escritorio.Informes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Id, string Apellido_Terapeuta, string Nombre_Terapeuta, string Apellido, string Nombre, string Tipo_Hora, string Lugar, string Fecha, string Cantidad_de_Horas, string Total, string Cobrado) {
+            public DataTable1Row AddDataTable1Row(string Id, string Paciente, string Tipo_Hora, string Lugar, string Fecha, string Cantidad_de_Horas, string Total, string Cobrado) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
-                        Apellido_Terapeuta,
-                        Nombre_Terapeuta,
-                        Apellido,
-                        Nombre,
+                        Paciente,
                         Tipo_Hora,
                         Lugar,
                         Fecha,
@@ -496,10 +463,7 @@ namespace Escritorio.Informes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnApellido_Terapeuta = base.Columns["Apellido Terapeuta"];
-                this.columnNombre_Terapeuta = base.Columns["Nombre Terapeuta"];
-                this.columnApellido = base.Columns["Apellido"];
-                this.columnNombre = base.Columns["Nombre"];
+                this.columnPaciente = base.Columns["Paciente"];
                 this.columnTipo_Hora = base.Columns["Tipo Hora"];
                 this.columnLugar = base.Columns["Lugar"];
                 this.columnFecha = base.Columns["Fecha"];
@@ -513,14 +477,8 @@ namespace Escritorio.Informes {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnApellido_Terapeuta = new global::System.Data.DataColumn("Apellido Terapeuta", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApellido_Terapeuta);
-                this.columnNombre_Terapeuta = new global::System.Data.DataColumn("Nombre Terapeuta", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Terapeuta);
-                this.columnApellido = new global::System.Data.DataColumn("Apellido", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApellido);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
+                this.columnPaciente = new global::System.Data.DataColumn("Paciente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaciente);
                 this.columnTipo_Hora = new global::System.Data.DataColumn("Tipo Hora", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipo_Hora);
                 this.columnLugar = new global::System.Data.DataColumn("Lugar", typeof(string), null, global::System.Data.MappingType.Element);
@@ -691,65 +649,17 @@ namespace Escritorio.Informes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Apellido_Terapeuta {
+            public string Paciente {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.Apellido_TerapeutaColumn]));
+                        return ((string)(this[this.tableDataTable1.PacienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Apellido Terapeuta\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Paciente\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.Apellido_TerapeutaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Nombre_Terapeuta {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.Nombre_TerapeutaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre Terapeuta\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.Nombre_TerapeutaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Apellido {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.ApellidoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Apellido\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.ApellidoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.NombreColumn] = value;
+                    this[this.tableDataTable1.PacienteColumn] = value;
                 }
             }
             
@@ -863,50 +773,14 @@ namespace Escritorio.Informes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsApellido_TerapeutaNull() {
-                return this.IsNull(this.tableDataTable1.Apellido_TerapeutaColumn);
+            public bool IsPacienteNull() {
+                return this.IsNull(this.tableDataTable1.PacienteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetApellido_TerapeutaNull() {
-                this[this.tableDataTable1.Apellido_TerapeutaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNombre_TerapeutaNull() {
-                return this.IsNull(this.tableDataTable1.Nombre_TerapeutaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNombre_TerapeutaNull() {
-                this[this.tableDataTable1.Nombre_TerapeutaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsApellidoNull() {
-                return this.IsNull(this.tableDataTable1.ApellidoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetApellidoNull() {
-                this[this.tableDataTable1.ApellidoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableDataTable1.NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableDataTable1.NombreColumn] = global::System.Convert.DBNull;
+            public void SetPacienteNull() {
+                this[this.tableDataTable1.PacienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

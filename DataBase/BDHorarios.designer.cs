@@ -30,9 +30,6 @@ namespace DataBase
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertHoras_Trabajada(Horas_Trabajada instance);
-    partial void UpdateHoras_Trabajada(Horas_Trabajada instance);
-    partial void DeleteHoras_Trabajada(Horas_Trabajada instance);
     partial void InsertObras_Sociale(Obras_Sociale instance);
     partial void UpdateObras_Sociale(Obras_Sociale instance);
     partial void DeleteObras_Sociale(Obras_Sociale instance);
@@ -48,6 +45,9 @@ namespace DataBase
     partial void InsertTerapeuta(Terapeuta instance);
     partial void UpdateTerapeuta(Terapeuta instance);
     partial void DeleteTerapeuta(Terapeuta instance);
+    partial void InsertHoras_Trabajada(Horas_Trabajada instance);
+    partial void UpdateHoras_Trabajada(Horas_Trabajada instance);
+    partial void DeleteHoras_Trabajada(Horas_Trabajada instance);
     #endregion
 		
 		public BDHorariosDataContext() : 
@@ -78,14 +78,6 @@ namespace DataBase
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Horas_Trabajada> Horas_Trabajadas
-		{
-			get
-			{
-				return this.GetTable<Horas_Trabajada>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Obras_Sociale> Obras_Sociales
@@ -128,18 +120,12 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarHorasTrabajadas")]
-		public ISingleResult<ListarHorasTrabajadasResult> ListarHorasTrabajadas([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(20)")] string mes)
+		public System.Data.Linq.Table<Horas_Trabajada> Horas_Trabajadas
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mes);
-			return ((ISingleResult<ListarHorasTrabajadasResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarHorasTrabajadasPagas")]
-		public ISingleResult<ListarHorasTrabajadasPagasResult> ListarHorasTrabajadasPagas([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(20)")] string mes)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mes);
-			return ((ISingleResult<ListarHorasTrabajadasPagasResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<Horas_Trabajada>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarObrasSociales")]
@@ -176,382 +162,19 @@ namespace DataBase
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<ListarTiposHorasResult>)(result.ReturnValue));
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Horas_Trabajadas")]
-	public partial class Horas_Trabajada : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _HrTrab_Id;
-		
-		private decimal _HrTrab_Cant;
-		
-		private string _HrTrab_Mes;
-		
-		private string _HrTrab_Lugar;
-		
-		private decimal _HrTrab_Precio;
-		
-		private int _HrTrab_Ter;
-		
-		private int _HrTrab_Pac;
-		
-		private int _HrTrab_TipoHr;
-		
-		private bool _HrTrab_Cob;
-		
-		private EntityRef<Paciente> _Paciente;
-		
-		private EntityRef<Tipos_Hora> _Tipos_Hora;
-		
-		private EntityRef<Terapeuta> _Terapeuta;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnHrTrab_IdChanging(int value);
-    partial void OnHrTrab_IdChanged();
-    partial void OnHrTrab_CantChanging(decimal value);
-    partial void OnHrTrab_CantChanged();
-    partial void OnHrTrab_MesChanging(string value);
-    partial void OnHrTrab_MesChanged();
-    partial void OnHrTrab_LugarChanging(string value);
-    partial void OnHrTrab_LugarChanged();
-    partial void OnHrTrab_PrecioChanging(decimal value);
-    partial void OnHrTrab_PrecioChanged();
-    partial void OnHrTrab_TerChanging(int value);
-    partial void OnHrTrab_TerChanged();
-    partial void OnHrTrab_PacChanging(int value);
-    partial void OnHrTrab_PacChanged();
-    partial void OnHrTrab_TipoHrChanging(int value);
-    partial void OnHrTrab_TipoHrChanged();
-    partial void OnHrTrab_CobChanging(bool value);
-    partial void OnHrTrab_CobChanged();
-    #endregion
-		
-		public Horas_Trabajada()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarHorasTrabajadas")]
+		public ISingleResult<ListarHorasTrabajadasResult> ListarHorasTrabajadas([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(20)")] string mes)
 		{
-			this._Paciente = default(EntityRef<Paciente>);
-			this._Tipos_Hora = default(EntityRef<Tipos_Hora>);
-			this._Terapeuta = default(EntityRef<Terapeuta>);
-			OnCreated();
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mes);
+			return ((ISingleResult<ListarHorasTrabajadasResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int HrTrab_Id
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarHorasTrabajadasPagas")]
+		public ISingleResult<ListarHorasTrabajadasPagasResult> ListarHorasTrabajadasPagas([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(20)")] string mes)
 		{
-			get
-			{
-				return this._HrTrab_Id;
-			}
-			set
-			{
-				if ((this._HrTrab_Id != value))
-				{
-					this.OnHrTrab_IdChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Id = value;
-					this.SendPropertyChanged("HrTrab_Id");
-					this.OnHrTrab_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Cant", DbType="Decimal(10,2) NOT NULL")]
-		public decimal HrTrab_Cant
-		{
-			get
-			{
-				return this._HrTrab_Cant;
-			}
-			set
-			{
-				if ((this._HrTrab_Cant != value))
-				{
-					this.OnHrTrab_CantChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Cant = value;
-					this.SendPropertyChanged("HrTrab_Cant");
-					this.OnHrTrab_CantChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string HrTrab_Mes
-		{
-			get
-			{
-				return this._HrTrab_Mes;
-			}
-			set
-			{
-				if ((this._HrTrab_Mes != value))
-				{
-					this.OnHrTrab_MesChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Mes = value;
-					this.SendPropertyChanged("HrTrab_Mes");
-					this.OnHrTrab_MesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string HrTrab_Lugar
-		{
-			get
-			{
-				return this._HrTrab_Lugar;
-			}
-			set
-			{
-				if ((this._HrTrab_Lugar != value))
-				{
-					this.OnHrTrab_LugarChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Lugar = value;
-					this.SendPropertyChanged("HrTrab_Lugar");
-					this.OnHrTrab_LugarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Precio", DbType="Decimal(10,2) NOT NULL")]
-		public decimal HrTrab_Precio
-		{
-			get
-			{
-				return this._HrTrab_Precio;
-			}
-			set
-			{
-				if ((this._HrTrab_Precio != value))
-				{
-					this.OnHrTrab_PrecioChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Precio = value;
-					this.SendPropertyChanged("HrTrab_Precio");
-					this.OnHrTrab_PrecioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Ter", DbType="Int NOT NULL")]
-		public int HrTrab_Ter
-		{
-			get
-			{
-				return this._HrTrab_Ter;
-			}
-			set
-			{
-				if ((this._HrTrab_Ter != value))
-				{
-					if (this._Terapeuta.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnHrTrab_TerChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Ter = value;
-					this.SendPropertyChanged("HrTrab_Ter");
-					this.OnHrTrab_TerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Pac", DbType="Int NOT NULL")]
-		public int HrTrab_Pac
-		{
-			get
-			{
-				return this._HrTrab_Pac;
-			}
-			set
-			{
-				if ((this._HrTrab_Pac != value))
-				{
-					if (this._Paciente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnHrTrab_PacChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Pac = value;
-					this.SendPropertyChanged("HrTrab_Pac");
-					this.OnHrTrab_PacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_TipoHr", DbType="Int NOT NULL")]
-		public int HrTrab_TipoHr
-		{
-			get
-			{
-				return this._HrTrab_TipoHr;
-			}
-			set
-			{
-				if ((this._HrTrab_TipoHr != value))
-				{
-					if (this._Tipos_Hora.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnHrTrab_TipoHrChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_TipoHr = value;
-					this.SendPropertyChanged("HrTrab_TipoHr");
-					this.OnHrTrab_TipoHrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Cob", DbType="Bit NOT NULL")]
-		public bool HrTrab_Cob
-		{
-			get
-			{
-				return this._HrTrab_Cob;
-			}
-			set
-			{
-				if ((this._HrTrab_Cob != value))
-				{
-					this.OnHrTrab_CobChanging(value);
-					this.SendPropertyChanging();
-					this._HrTrab_Cob = value;
-					this.SendPropertyChanged("HrTrab_Cob");
-					this.OnHrTrab_CobChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paciente_Horas_Trabajada", Storage="_Paciente", ThisKey="HrTrab_Pac", OtherKey="Paciente_Id", IsForeignKey=true)]
-		public Paciente Paciente
-		{
-			get
-			{
-				return this._Paciente.Entity;
-			}
-			set
-			{
-				Paciente previousValue = this._Paciente.Entity;
-				if (((previousValue != value) 
-							|| (this._Paciente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Paciente.Entity = null;
-						previousValue.Horas_Trabajadas.Remove(this);
-					}
-					this._Paciente.Entity = value;
-					if ((value != null))
-					{
-						value.Horas_Trabajadas.Add(this);
-						this._HrTrab_Pac = value.Paciente_Id;
-					}
-					else
-					{
-						this._HrTrab_Pac = default(int);
-					}
-					this.SendPropertyChanged("Paciente");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipos_Hora_Horas_Trabajada", Storage="_Tipos_Hora", ThisKey="HrTrab_TipoHr", OtherKey="TipoHora_Id", IsForeignKey=true)]
-		public Tipos_Hora Tipos_Hora
-		{
-			get
-			{
-				return this._Tipos_Hora.Entity;
-			}
-			set
-			{
-				Tipos_Hora previousValue = this._Tipos_Hora.Entity;
-				if (((previousValue != value) 
-							|| (this._Tipos_Hora.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tipos_Hora.Entity = null;
-						previousValue.Horas_Trabajadas.Remove(this);
-					}
-					this._Tipos_Hora.Entity = value;
-					if ((value != null))
-					{
-						value.Horas_Trabajadas.Add(this);
-						this._HrTrab_TipoHr = value.TipoHora_Id;
-					}
-					else
-					{
-						this._HrTrab_TipoHr = default(int);
-					}
-					this.SendPropertyChanged("Tipos_Hora");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Terapeuta_Horas_Trabajada", Storage="_Terapeuta", ThisKey="HrTrab_Ter", OtherKey="Terapeuta_Id", IsForeignKey=true)]
-		public Terapeuta Terapeuta
-		{
-			get
-			{
-				return this._Terapeuta.Entity;
-			}
-			set
-			{
-				Terapeuta previousValue = this._Terapeuta.Entity;
-				if (((previousValue != value) 
-							|| (this._Terapeuta.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Terapeuta.Entity = null;
-						previousValue.Horas_Trabajadas.Remove(this);
-					}
-					this._Terapeuta.Entity = value;
-					if ((value != null))
-					{
-						value.Horas_Trabajadas.Add(this);
-						this._HrTrab_Ter = value.Terapeuta_Id;
-					}
-					else
-					{
-						this._HrTrab_Ter = default(int);
-					}
-					this.SendPropertyChanged("Terapeuta");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mes);
+			return ((ISingleResult<ListarHorasTrabajadasPagasResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1244,8 +867,6 @@ namespace DataBase
 		
 		private int _Terapeuta_Prof;
 		
-		private EntitySet<Horas_Trabajada> _Horas_Trabajadas;
-		
 		private EntityRef<Profesione> _Profesione;
 		
     #region Extensibility Method Definitions
@@ -1274,7 +895,6 @@ namespace DataBase
 		
 		public Terapeuta()
 		{
-			this._Horas_Trabajadas = new EntitySet<Horas_Trabajada>(new Action<Horas_Trabajada>(this.attach_Horas_Trabajadas), new Action<Horas_Trabajada>(this.detach_Horas_Trabajadas));
 			this._Profesione = default(EntityRef<Profesione>);
 			OnCreated();
 		}
@@ -1463,19 +1083,6 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Terapeuta_Horas_Trabajada", Storage="_Horas_Trabajadas", ThisKey="Terapeuta_Id", OtherKey="HrTrab_Ter")]
-		public EntitySet<Horas_Trabajada> Horas_Trabajadas
-		{
-			get
-			{
-				return this._Horas_Trabajadas;
-			}
-			set
-			{
-				this._Horas_Trabajadas.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Profesione_Terapeuta", Storage="_Profesione", ThisKey="Terapeuta_Prof", OtherKey="Profesion_Id", IsForeignKey=true)]
 		public Profesione Profesione
 		{
@@ -1529,428 +1136,316 @@ namespace DataBase
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_Horas_Trabajadas(Horas_Trabajada entity)
-		{
-			this.SendPropertyChanging();
-			entity.Terapeuta = this;
-		}
-		
-		private void detach_Horas_Trabajadas(Horas_Trabajada entity)
-		{
-			this.SendPropertyChanging();
-			entity.Terapeuta = null;
-		}
 	}
 	
-	public partial class ListarHorasTrabajadasResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Horas_Trabajadas")]
+	public partial class Horas_Trabajada : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private int _Id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _ApellidoTerapeuta;
+		private int _HrTrab_Id;
 		
-		private string _NombreTerapeuta;
+		private decimal _HrTrab_Cant;
 		
-		private string _PacienteApellido;
+		private string _HrTrab_Mes;
 		
-		private string _NombrePaciente;
+		private string _HrTrab_Lugar;
 		
-		private string _TipoHora;
+		private decimal _HrTrab_Precio;
 		
-		private decimal _Total;
+		private int _HrTrab_Pac;
 		
-		private string _Lugar;
+		private int _HrTrab_TipoHr;
 		
-		private string _Mes;
+		private bool _HrTrab_Cob;
 		
-		private decimal _Horas;
+		private EntityRef<Paciente> _Paciente;
 		
-		private bool _Cobrada;
+		private EntityRef<Tipos_Hora> _Tipos_Hora;
 		
-		public ListarHorasTrabajadasResult()
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnHrTrab_IdChanging(int value);
+    partial void OnHrTrab_IdChanged();
+    partial void OnHrTrab_CantChanging(decimal value);
+    partial void OnHrTrab_CantChanged();
+    partial void OnHrTrab_MesChanging(string value);
+    partial void OnHrTrab_MesChanged();
+    partial void OnHrTrab_LugarChanging(string value);
+    partial void OnHrTrab_LugarChanged();
+    partial void OnHrTrab_PrecioChanging(decimal value);
+    partial void OnHrTrab_PrecioChanged();
+    partial void OnHrTrab_PacChanging(int value);
+    partial void OnHrTrab_PacChanged();
+    partial void OnHrTrab_TipoHrChanging(int value);
+    partial void OnHrTrab_TipoHrChanged();
+    partial void OnHrTrab_CobChanging(bool value);
+    partial void OnHrTrab_CobChanged();
+    #endregion
+		
+		public Horas_Trabajada()
 		{
+			this._Paciente = default(EntityRef<Paciente>);
+			this._Tipos_Hora = default(EntityRef<Tipos_Hora>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int HrTrab_Id
 		{
 			get
 			{
-				return this._Id;
+				return this._HrTrab_Id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._HrTrab_Id != value))
 				{
-					this._Id = value;
+					this.OnHrTrab_IdChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Id = value;
+					this.SendPropertyChanged("HrTrab_Id");
+					this.OnHrTrab_IdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoTerapeuta", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ApellidoTerapeuta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Cant", DbType="Decimal(10,2) NOT NULL")]
+		public decimal HrTrab_Cant
 		{
 			get
 			{
-				return this._ApellidoTerapeuta;
+				return this._HrTrab_Cant;
 			}
 			set
 			{
-				if ((this._ApellidoTerapeuta != value))
+				if ((this._HrTrab_Cant != value))
 				{
-					this._ApellidoTerapeuta = value;
+					this.OnHrTrab_CantChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Cant = value;
+					this.SendPropertyChanged("HrTrab_Cant");
+					this.OnHrTrab_CantChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreTerapeuta", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreTerapeuta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string HrTrab_Mes
 		{
 			get
 			{
-				return this._NombreTerapeuta;
+				return this._HrTrab_Mes;
 			}
 			set
 			{
-				if ((this._NombreTerapeuta != value))
+				if ((this._HrTrab_Mes != value))
 				{
-					this._NombreTerapeuta = value;
+					this.OnHrTrab_MesChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Mes = value;
+					this.SendPropertyChanged("HrTrab_Mes");
+					this.OnHrTrab_MesChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PacienteApellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string PacienteApellido
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string HrTrab_Lugar
 		{
 			get
 			{
-				return this._PacienteApellido;
+				return this._HrTrab_Lugar;
 			}
 			set
 			{
-				if ((this._PacienteApellido != value))
+				if ((this._HrTrab_Lugar != value))
 				{
-					this._PacienteApellido = value;
+					this.OnHrTrab_LugarChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Lugar = value;
+					this.SendPropertyChanged("HrTrab_Lugar");
+					this.OnHrTrab_LugarChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombrePaciente", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombrePaciente
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Precio", DbType="Decimal(10,2) NOT NULL")]
+		public decimal HrTrab_Precio
 		{
 			get
 			{
-				return this._NombrePaciente;
+				return this._HrTrab_Precio;
 			}
 			set
 			{
-				if ((this._NombrePaciente != value))
+				if ((this._HrTrab_Precio != value))
 				{
-					this._NombrePaciente = value;
+					this.OnHrTrab_PrecioChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Precio = value;
+					this.SendPropertyChanged("HrTrab_Precio");
+					this.OnHrTrab_PrecioChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoHora", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TipoHora
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Pac", DbType="Int NOT NULL")]
+		public int HrTrab_Pac
 		{
 			get
 			{
-				return this._TipoHora;
+				return this._HrTrab_Pac;
 			}
 			set
 			{
-				if ((this._TipoHora != value))
+				if ((this._HrTrab_Pac != value))
 				{
-					this._TipoHora = value;
+					if (this._Paciente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnHrTrab_PacChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Pac = value;
+					this.SendPropertyChanged("HrTrab_Pac");
+					this.OnHrTrab_PacChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Total
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_TipoHr", DbType="Int NOT NULL")]
+		public int HrTrab_TipoHr
 		{
 			get
 			{
-				return this._Total;
+				return this._HrTrab_TipoHr;
 			}
 			set
 			{
-				if ((this._Total != value))
+				if ((this._HrTrab_TipoHr != value))
 				{
-					this._Total = value;
+					if (this._Tipos_Hora.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnHrTrab_TipoHrChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_TipoHr = value;
+					this.SendPropertyChanged("HrTrab_TipoHr");
+					this.OnHrTrab_TipoHrChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Lugar
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HrTrab_Cob", DbType="Bit NOT NULL")]
+		public bool HrTrab_Cob
 		{
 			get
 			{
-				return this._Lugar;
+				return this._HrTrab_Cob;
 			}
 			set
 			{
-				if ((this._Lugar != value))
+				if ((this._HrTrab_Cob != value))
 				{
-					this._Lugar = value;
+					this.OnHrTrab_CobChanging(value);
+					this.SendPropertyChanging();
+					this._HrTrab_Cob = value;
+					this.SendPropertyChanged("HrTrab_Cob");
+					this.OnHrTrab_CobChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Mes
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paciente_Horas_Trabajada", Storage="_Paciente", ThisKey="HrTrab_Pac", OtherKey="Paciente_Id", IsForeignKey=true)]
+		public Paciente Paciente
 		{
 			get
 			{
-				return this._Mes;
+				return this._Paciente.Entity;
 			}
 			set
 			{
-				if ((this._Mes != value))
+				Paciente previousValue = this._Paciente.Entity;
+				if (((previousValue != value) 
+							|| (this._Paciente.HasLoadedOrAssignedValue == false)))
 				{
-					this._Mes = value;
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Paciente.Entity = null;
+						previousValue.Horas_Trabajadas.Remove(this);
+					}
+					this._Paciente.Entity = value;
+					if ((value != null))
+					{
+						value.Horas_Trabajadas.Add(this);
+						this._HrTrab_Pac = value.Paciente_Id;
+					}
+					else
+					{
+						this._HrTrab_Pac = default(int);
+					}
+					this.SendPropertyChanged("Paciente");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horas", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Horas
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipos_Hora_Horas_Trabajada", Storage="_Tipos_Hora", ThisKey="HrTrab_TipoHr", OtherKey="TipoHora_Id", IsForeignKey=true)]
+		public Tipos_Hora Tipos_Hora
 		{
 			get
 			{
-				return this._Horas;
+				return this._Tipos_Hora.Entity;
 			}
 			set
 			{
-				if ((this._Horas != value))
+				Tipos_Hora previousValue = this._Tipos_Hora.Entity;
+				if (((previousValue != value) 
+							|| (this._Tipos_Hora.HasLoadedOrAssignedValue == false)))
 				{
-					this._Horas = value;
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tipos_Hora.Entity = null;
+						previousValue.Horas_Trabajadas.Remove(this);
+					}
+					this._Tipos_Hora.Entity = value;
+					if ((value != null))
+					{
+						value.Horas_Trabajadas.Add(this);
+						this._HrTrab_TipoHr = value.TipoHora_Id;
+					}
+					else
+					{
+						this._HrTrab_TipoHr = default(int);
+					}
+					this.SendPropertyChanged("Tipos_Hora");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cobrada", DbType="Bit NOT NULL")]
-		public bool Cobrada
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			get
+			if ((this.PropertyChanging != null))
 			{
-				return this._Cobrada;
-			}
-			set
-			{
-				if ((this._Cobrada != value))
-				{
-					this._Cobrada = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ListarHorasTrabajadasPagasResult
-	{
-		
-		private int _Id;
-		
-		private string _ApellidoTerapeuta;
-		
-		private string _NombreTerapeuta;
-		
-		private string _PacienteApellido;
-		
-		private string _NombrePaciente;
-		
-		private string _TipoHora;
-		
-		private decimal _Total;
-		
-		private string _Lugar;
-		
-		private string _Mes;
-		
-		private decimal _Horas;
-		
-		private bool _Cobrada;
-		
-		public ListarHorasTrabajadasPagasResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
+				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoTerapeuta", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ApellidoTerapeuta
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			get
+			if ((this.PropertyChanged != null))
 			{
-				return this._ApellidoTerapeuta;
-			}
-			set
-			{
-				if ((this._ApellidoTerapeuta != value))
-				{
-					this._ApellidoTerapeuta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreTerapeuta", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreTerapeuta
-		{
-			get
-			{
-				return this._NombreTerapeuta;
-			}
-			set
-			{
-				if ((this._NombreTerapeuta != value))
-				{
-					this._NombreTerapeuta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PacienteApellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string PacienteApellido
-		{
-			get
-			{
-				return this._PacienteApellido;
-			}
-			set
-			{
-				if ((this._PacienteApellido != value))
-				{
-					this._PacienteApellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombrePaciente", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombrePaciente
-		{
-			get
-			{
-				return this._NombrePaciente;
-			}
-			set
-			{
-				if ((this._NombrePaciente != value))
-				{
-					this._NombrePaciente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoHora", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TipoHora
-		{
-			get
-			{
-				return this._TipoHora;
-			}
-			set
-			{
-				if ((this._TipoHora != value))
-				{
-					this._TipoHora = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Total
-		{
-			get
-			{
-				return this._Total;
-			}
-			set
-			{
-				if ((this._Total != value))
-				{
-					this._Total = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Lugar
-		{
-			get
-			{
-				return this._Lugar;
-			}
-			set
-			{
-				if ((this._Lugar != value))
-				{
-					this._Lugar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Mes
-		{
-			get
-			{
-				return this._Mes;
-			}
-			set
-			{
-				if ((this._Mes != value))
-				{
-					this._Mes = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horas", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Horas
-		{
-			get
-			{
-				return this._Horas;
-			}
-			set
-			{
-				if ((this._Horas != value))
-				{
-					this._Horas = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cobrada", DbType="Bit NOT NULL")]
-		public bool Cobrada
-		{
-			get
-			{
-				return this._Cobrada;
-			}
-			set
-			{
-				if ((this._Cobrada != value))
-				{
-					this._Cobrada = value;
-				}
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -2422,6 +1917,346 @@ namespace DataBase
 				if ((this._Valor != value))
 				{
 					this._Valor = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ListarHorasTrabajadasResult
+	{
+		
+		private int _Id;
+		
+		private string _PacienteApellido;
+		
+		private string _NombrePaciente;
+		
+		private string _TipoHora;
+		
+		private decimal _Total;
+		
+		private string _Lugar;
+		
+		private string _Mes;
+		
+		private decimal _Horas;
+		
+		private bool _Cobrada;
+		
+		public ListarHorasTrabajadasResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PacienteApellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PacienteApellido
+		{
+			get
+			{
+				return this._PacienteApellido;
+			}
+			set
+			{
+				if ((this._PacienteApellido != value))
+				{
+					this._PacienteApellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombrePaciente", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombrePaciente
+		{
+			get
+			{
+				return this._NombrePaciente;
+			}
+			set
+			{
+				if ((this._NombrePaciente != value))
+				{
+					this._NombrePaciente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoHora", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TipoHora
+		{
+			get
+			{
+				return this._TipoHora;
+			}
+			set
+			{
+				if ((this._TipoHora != value))
+				{
+					this._TipoHora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Lugar
+		{
+			get
+			{
+				return this._Lugar;
+			}
+			set
+			{
+				if ((this._Lugar != value))
+				{
+					this._Lugar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Mes
+		{
+			get
+			{
+				return this._Mes;
+			}
+			set
+			{
+				if ((this._Mes != value))
+				{
+					this._Mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horas", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Horas
+		{
+			get
+			{
+				return this._Horas;
+			}
+			set
+			{
+				if ((this._Horas != value))
+				{
+					this._Horas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cobrada", DbType="Bit NOT NULL")]
+		public bool Cobrada
+		{
+			get
+			{
+				return this._Cobrada;
+			}
+			set
+			{
+				if ((this._Cobrada != value))
+				{
+					this._Cobrada = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ListarHorasTrabajadasPagasResult
+	{
+		
+		private int _Id;
+		
+		private string _PacienteApellido;
+		
+		private string _NombrePaciente;
+		
+		private string _TipoHora;
+		
+		private decimal _Total;
+		
+		private string _Lugar;
+		
+		private string _Mes;
+		
+		private decimal _Horas;
+		
+		private bool _Cobrada;
+		
+		public ListarHorasTrabajadasPagasResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PacienteApellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PacienteApellido
+		{
+			get
+			{
+				return this._PacienteApellido;
+			}
+			set
+			{
+				if ((this._PacienteApellido != value))
+				{
+					this._PacienteApellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombrePaciente", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombrePaciente
+		{
+			get
+			{
+				return this._NombrePaciente;
+			}
+			set
+			{
+				if ((this._NombrePaciente != value))
+				{
+					this._NombrePaciente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoHora", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TipoHora
+		{
+			get
+			{
+				return this._TipoHora;
+			}
+			set
+			{
+				if ((this._TipoHora != value))
+				{
+					this._TipoHora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Lugar
+		{
+			get
+			{
+				return this._Lugar;
+			}
+			set
+			{
+				if ((this._Lugar != value))
+				{
+					this._Lugar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Mes
+		{
+			get
+			{
+				return this._Mes;
+			}
+			set
+			{
+				if ((this._Mes != value))
+				{
+					this._Mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horas", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Horas
+		{
+			get
+			{
+				return this._Horas;
+			}
+			set
+			{
+				if ((this._Horas != value))
+				{
+					this._Horas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cobrada", DbType="Bit NOT NULL")]
+		public bool Cobrada
+		{
+			get
+			{
+				return this._Cobrada;
+			}
+			set
+			{
+				if ((this._Cobrada != value))
+				{
+					this._Cobrada = value;
 				}
 			}
 		}

@@ -41,8 +41,6 @@
             this.dgv_HrsCob = new System.Windows.Forms.DataGridView();
             this.listarHorasTrabajadasPagasResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreTerapeutaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombrePacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,8 +150,6 @@
             this.dgv_HrsCob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_HrsCob.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.apellidoTerapeutaDataGridViewTextBoxColumn,
-            this.nombreTerapeutaDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1,
             this.nombrePacienteDataGridViewTextBoxColumn,
             this.tipoHoraDataGridViewTextBoxColumn,
@@ -178,20 +174,6 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // apellidoTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.HeaderText = "ApellidoTerapeuta";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Name = "apellidoTerapeutaDataGridViewTextBoxColumn";
-            this.apellidoTerapeutaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreTerapeutaDataGridViewTextBoxColumn
-            // 
-            this.nombreTerapeutaDataGridViewTextBoxColumn.DataPropertyName = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.HeaderText = "NombreTerapeuta";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Name = "nombreTerapeutaDataGridViewTextBoxColumn";
-            this.nombreTerapeutaDataGridViewTextBoxColumn.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -226,7 +208,7 @@
             // horasDataGridViewTextBoxColumn
             // 
             this.horasDataGridViewTextBoxColumn.DataPropertyName = "Horas";
-            this.horasDataGridViewTextBoxColumn.HeaderText = "Horas";
+            this.horasDataGridViewTextBoxColumn.HeaderText = "Total Horas";
             this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
             // 
             // totalDataGridViewTextBoxColumn
@@ -274,9 +256,9 @@
         private System.Windows.Forms.Button btn_chrg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_cobrado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoTerapeutaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreTerapeutaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrePacienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoHoraDataGridViewTextBoxColumn;
